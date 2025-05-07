@@ -1,59 +1,68 @@
 <!-- 확인용 최종 -->
+
 <style>
-body {padding:0; margin:0}
-	#puraxel_product_detail {
-		padding: 0 !important; 
-		margin: 0 auto; 
-		line-height: 0 !important;
-		justify-content: center; 
-		align-items: center;
-		text-align: center;
-		display: flex;
-		flex-direction: column; 
-	}
+    #puraxel_product_detail {
+      width: 100%;
+        margin: 0 auto;
+        margin-top: 0px;
+        padding: 0 ;
+        text-align: center;
+        line-height: 0;
+      }
+    #puraxel_product_detail img{
+       margin: 0 auto;
+       display: flex;
+       font-size: 0;
+    }
 
-	.Ldetail_video {
-		padding: 0; 
-		background-color: #fff;
-	}
-	.Ldetail_video .pu_video {
-		max-width: 860px; 
-		margin: 0 auto;
-	}
-	
-	.Ldetail_video .pu_video .video-container {
-		position: relative; 
-		padding-bottom: 56.25%; 
-		height: 0; 
-		overflow: hidden; 
-		max-width: 100%;
-		background: #000;
-	}
-	.Ldetail_video .pu_video .video-container iframe {
-		position: absolute; 
-		top: 0; 
-		left: 0; 
-		width: 100%; 
-		height: 100%;
-	}
-	
-	@media (max-width: 768px) {
-       #puraxel_product_detail img {
-          width: 100%;
-		}
-
- }
-</style>
-
+    .video-container {
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+    padding-bottom: 56.25% !important;
+  }
+  
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .Ldetail_video {
+    padding:0; 
+    background-color: #fff;
+  }
+  
+  .Ldetail_video .pu_video {
+    max-width:860px; margin:0 auto;
+  }
+  
+   @media all and  (max-width: 768px) {
+      #header {background: none !important;}
+     .contents-wrap {  
+         margin-top: 0px !important;
+        }
+      #contents {
+          margin-top: 70px !important;
+        }
+  
+     #puraxel_product_detail img{
+       margin: 0 auto; 
+       width:100%;
+    }
+  }
+  </style>
 <section id="puraxel_product_detail">
 <!-- TVC --> 
-<div class="Ldetail_video">
-	<div class="pu_video">
-		<div class="video-container" >
-            <iframe data-keepplaying id="player" src="https://www.youtube.com/embed/Jvifdxje9I8?version=2&playlist=Jvifdxje9I8&wmode=opaque&controls=0&enablejsapi=1&showinfo=0&rel=0&modestbranding=1&loop=1&vq=highres&mute=1&autoplay=0" frameborder="0" allowfullscreen></iframe> 
-           </div>
-	</div>
-</div>
+  <div class="Ldetail_video" >
+      <div class="pu_video">
+         <div class="video-container" >
+          <iframe data-keepplaying id="player" src="https://www.youtube.com/embed/Jvifdxje9I8?version=2&playlist=Jvifdxje9I8&wmode=opaque&controls=0&enablejsapi=1&showinfo=0&rel=0&modestbranding=1&loop=1&vq=highres&mute=1&autoplay=1" frameborder="0" allowfullscreen></iframe> 
+         </div>
+     </div>
+  </div> 
 <!-- //TVC --> 
 <!-- 인트로 -->
 	<img src="https://puraxel.speedgabia.com/detail/fx2000/fx2000_intro_01.jpg" alt="">

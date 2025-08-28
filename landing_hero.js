@@ -1,3 +1,10 @@
+if (/Mobi|Android/i.test(navigator.userAgent)) {
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    header.style.top = window.scrollY + 'px';
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
     /* ===========================

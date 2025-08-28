@@ -8,7 +8,8 @@
     font-family: 'Segoe UI', sans-serif;
 	text-decoration: none;
 }
-
+html, body {
+    overscroll-behavior: none; 
 html {
     scroll-behavior: smooth;
 }

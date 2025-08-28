@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
      window.addEventListener('scroll', handleScroll);
     // 초기 로딩 시 렌더링 완료 후 정확히 적용
     window.addEventListener('load', () => requestAnimationFrame(handleScroll));
+	setTimeout(handleScroll, 100); 
     // Go to Top 클릭
     if(scrollBtn){
         scrollBtn.addEventListener('click', e => {

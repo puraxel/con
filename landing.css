@@ -8,12 +8,9 @@
     font-family: 'Segoe UI', sans-serif;
 	text-decoration: none;
 }
-* {
-  box-sizing: border-box;
-}
+
 html {
     scroll-behavior: smooth;
-	overflow-x: hidden;
 }
 
 body {
@@ -30,10 +27,11 @@ li {
    header
 --------------------------- */
 header {
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw; 
+    max-width: 100%;
     background: rgba(255, 255, 255, 0);
     backdrop-filter: blur(10px);
     display: flex;
@@ -43,7 +41,6 @@ header {
     z-index: 1000;
     transition: 0.3s;
 	transform: none !important; 
-	transform: translateZ(0); 
 	
 }
 
@@ -670,6 +667,7 @@ section.crossing {
   margin: 0 auto;
   display: grid;
   gap: 40px;
+ /*  overflow-x: hidden;*/
 }
 
 /* Row Layout */
@@ -1383,8 +1381,10 @@ footer {
 --------------------------- */
 @media (max-width: 768px) {
     header {
+	    width: 100vw;
         flex-direction: inline;
         align-items: flex-start;
+		padding: 16px;
     }
 
     header nav {
@@ -1401,9 +1401,7 @@ footer {
     .hero p {
         font-size: 1rem;
     }
-	header {
-    padding: 16px;
-}
+
 
 .faq-item {
   max-width: 90%;

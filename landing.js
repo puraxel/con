@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     window.addEventListener('scroll', handleScroll);
+	handleScroll();
 
     // Go to Top 클릭
     if(scrollBtn){

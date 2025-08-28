@@ -34,7 +34,7 @@ header {
     width: 100%; 
     max-width: 100%;
     background: rgba(255, 255, 255, 0);
-    backdrop-filter: blur(10px);
+    
     display: flex;
     justify-content: space-between;
     align-items: center;

@@ -664,7 +664,6 @@ section.crossing {
   margin: 0 auto;
   display: grid;
   gap: 40px;
-  overflow-x: hidden;
 }
 
 /* Row Layout */

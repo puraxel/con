@@ -8,9 +8,12 @@
     font-family: 'Segoe UI', sans-serif;
 	text-decoration: none;
 }
-
+* {
+  box-sizing: border-box;
+}
 html {
     scroll-behavior: smooth;
+	overflow-x: hidden;
 }
 
 body {
@@ -40,6 +43,7 @@ header {
     z-index: 1000;
     transition: 0.3s;
 	transform: none !important; 
+	transform: translateZ(0); 
 	
 }
 

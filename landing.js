@@ -9,22 +9,41 @@ document.addEventListener('DOMContentLoaded', () => {
     const parallaxSections = document.querySelectorAll('section[data-parallax]');
 
     function handleScroll() {
-        const scrollY = window.scrollY;
+        // 모바일/모든 브라우저 호환용 스크롤 위치
+        const scrollY = window.scrollY || document.documentElement.scrollTop;
 
-        if(header) header.classList.toggle('scrolled', scrollY > 50);
-        popups.forEach(p => p.classList.toggle('show', scrollY > 100));
-        if(scrollBtn) scrollBtn.classList.toggle('show', scrollY > 300);
+        // header toggle (충돌 없는 최소 처리)
+        if(header) {
+            if(scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        }
 
+        // popup toggle
+        popups.forEach(p => {
+            if(scrollY > 100) p.classList.add('show');
+            else p.classList.remove('show');
+        });
+
+        // Go to Top toggle
+        if(scrollBtn) {
+            if(scrollY > 300) scrollBtn.classList.add('show');
+            else scrollBtn.classList.remove('show');
+        }
+
+        // parallax (섹션별 transform 독립 처리)
         parallaxSections.forEach(section => {
             const speed = 0.5;
-            section.style.backgroundPosition = `center ${-scrollY * speed}px`;
+            // section 자체 offsetTop 기준으로 적용
+            const offset = section.offsetTop;
+            section.style.backgroundPosition = `center ${-(scrollY - offset) * speed}px`;
         });
     }
 
-     window.addEventListener('scroll', handleScroll);
-    // 초기 로딩 시 렌더링 완료 후 정확히 적용
+    window.addEventListener('scroll', handleScroll);
+
+    // 초기 로딩 시에도 적용
     window.addEventListener('load', () => requestAnimationFrame(handleScroll));
-	setTimeout(handleScroll, 100); 
+    setTimeout(handleScroll, 100);
     // Go to Top 클릭
     if(scrollBtn){
         scrollBtn.addEventListener('click', e => {

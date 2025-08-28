@@ -9,22 +9,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const parallaxSections = document.querySelectorAll('section[data-parallax]');
 
     function handleScroll() {
-    const scrollY = window.scrollY || window.pageYOffset;
-    if(header) header.classList.toggle('scrolled', scrollY > 50);
-    popups.forEach(p => p.classList.toggle('show', scrollY > 100));
-    if(scrollBtn) scrollBtn.classList.toggle('show', scrollY > 300);
-    parallaxSections.forEach(section => {
-        const speed = 0.5;
-        section.style.backgroundPosition = `center ${-scrollY * speed}px`;
-    });
-}
+        const scrollY = window.scrollY;
 
-window.addEventListener('scroll', handleScroll);
-window.addEventListener('load', handleScroll);
-window.addEventListener('resize', handleScroll);
-window.addEventListener('orientationchange', handleScroll);
+        if(header) header.classList.toggle('scrolled', scrollY > 50);
+        popups.forEach(p => p.classList.toggle('show', scrollY > 100));
+        if(scrollBtn) scrollBtn.classList.toggle('show', scrollY > 300);
 
+        parallaxSections.forEach(section => {
+            const speed = 0.5;
+            section.style.backgroundPosition = `center ${-scrollY * speed}px`;
+        });
+    }
 
+     window.addEventListener('scroll', handleScroll);
+    // 초기 로딩 시 렌더링 완료 후 정확히 적용
+    window.addEventListener('load', () => requestAnimationFrame(handleScroll));
     // Go to Top 클릭
     if(scrollBtn){
         scrollBtn.addEventListener('click', e => {

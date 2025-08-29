@@ -704,7 +704,9 @@ section.crossing {
 }
 
 @media (max-width: 768px) {
-  .c_row.left,
+  .c_row.left {
+      transform: translateX(-50px);
+  }
   .c_row.right {
       transform: translateX(0);
   }

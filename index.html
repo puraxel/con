@@ -302,8 +302,8 @@
 	  <input type="text" name="user_name" placeholder="Your Name" required>
       <input type="email" name="user_email" placeholder="Your Email" required>
       <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-      <button type="submit" style="padding:10px 20px;cursor:pointer;">Send</button>
-	  <div id="form-status" id="submit-btn" style="margin-top:10px; font-size:0.9em;"></div>
+      <button type="submit" id="submit-btn"  style="padding:10px 20px;cursor:pointer;">Send</button>
+	  <div id="form-status" style="margin-top:10px; font-size:0.9em;"></div>
    </form>
 
   </div>
@@ -323,45 +323,46 @@
 
 <!-- EmailJS SDK -->
 <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-  (function(){
-      emailjs.init('bnXoZqISwb8Xpt71H'); // EmailJS Public Key
-  })();
 
-  const form = document.getElementById('contact-form');
-  const submitBtn = document.getElementById('submit-btn');
-  const statusDiv = document.getElementById('form-status');
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+    // EmailJS 초기화
+    emailjs.init('bnXoZqISwb8Xpt71H'); // 여기에 EmailJS Public Key 입력
 
-  form.addEventListener('submit', function(e) {
-      e.preventDefault();
+    const form = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const statusDiv = document.getElementById('form-status');
 
-      // 로딩 상태 표시
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending...';
-      statusDiv.textContent = '';
-      statusDiv.style.color = '';
+    form.addEventListener('submit', function(e) {
+        e.preventDefault(); // 폼 기본 제출 방지
 
-      // EmailJS 전송
-      emailjs.sendForm('service_tuay11o', 'template_hhjxabe', this)
-      .then(() => {
-          // 성공
-          statusDiv.textContent = 'Message sent successfully!';
-          statusDiv.style.color = 'green';
-          form.reset();
-      }, (error) => {
-          // 실패
-          console.error('EmailJS Error:', error);
-          statusDiv.textContent = 'Failed to send message. Please try again.';
-          statusDiv.style.color = 'red';
-      })
-      .finally(() => {
-          // 버튼 상태 원복
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Send';
-      });
-  });
+        // 로딩 상태 표시
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+        statusDiv.textContent = '';
+        statusDiv.style.color = '';
+
+        // EmailJS 전송
+        emailjs.sendForm('service_tuay11o', 'template_hhjxabe', this)
+        .then(() => {
+            // 성공 메시지
+            statusDiv.textContent = 'Message sent successfully!';
+            statusDiv.style.color = 'green';
+            form.reset();
+        }, (error) => {
+            // 실패 메시지
+            console.error('EmailJS Error:', error);
+            statusDiv.textContent = 'Failed to send message. Please try again.';
+            statusDiv.style.color = 'red';
+        })
+        .finally(() => {
+            // 버튼 상태 원복
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send';
+        });
+    });
+});
 </script>
-
 
 </body>
 </html>

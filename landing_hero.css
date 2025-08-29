@@ -842,7 +842,7 @@ section.cta {
 .cta {
    /* background: linear-gradient(135deg, #242424, #0066ff);*/
     background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-                               url('image/test10.png');
+                               url('image/test4.png');
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;

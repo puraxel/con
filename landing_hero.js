@@ -206,11 +206,10 @@ sectionsWithId.forEach(sec => navObserver.observe(sec));
             document.addEventListener('mouseup', onUp);
         });
 
-       window.addEventListener('resize', ()=>{
-    heroSlideWidth = window.innerWidth; // 화면 폭 재계산
-    resetTranslate(); // 현재 인덱스 위치로 transform 재조정
-});
-
+        window.addEventListener('resize', ()=>{
+            heroSlideWidth = sliderEl.offsetWidth;
+            resetTranslate();
+        });
 
         showHeroSlide(0);
     }

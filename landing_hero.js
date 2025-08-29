@@ -122,97 +122,121 @@ sectionsWithId.forEach(sec => navObserver.observe(sec));
         });
     }
 
-    /* ===========================
-       3. Hero Slider (무한 루프 + Drag + Auto)
-    =========================== */
-    const sliderEl = document.querySelector('.hero_slider');
-    const heroSlidesRow = document.querySelector('.hero_slides');
-    const heroSlideElems = document.querySelectorAll('.hero_slide');
-    const heroPrevBtn = document.querySelector('.hero_prev');
-    const heroNextBtn = document.querySelector('.hero_next');
+   /* ===========================
+   Hero Slider (무한 루프 + Drag + Auto)
+=========================== */
+const sliderEl = document.querySelector('.hero_slider');
+const heroSlidesRow = document.querySelector('.hero_slides');
+const heroSlideElems = document.querySelectorAll('.hero_slide');
+const heroPrevBtn = document.querySelector('.hero_prev');
+const heroNextBtn = document.querySelector('.hero_next');
 
-    if(sliderEl && heroSlidesRow && heroSlideElems.length>0 && heroPrevBtn && heroNextBtn){
-        let heroIndex = 0;
-        const heroTotal = heroSlideElems.length;
-        let heroSlideWidth = sliderEl.offsetWidth;
-        let heroAutoTimer;
+if(sliderEl && heroSlidesRow && heroSlideElems.length>0 && heroPrevBtn && heroNextBtn){
+    let heroIndex = 0;
+    let heroSlideWidth = sliderEl.offsetWidth;
+    const heroTotal = heroSlideElems.length;
+    let heroAutoTimer;
+    let isTransitioning = false;
 
-        const showHeroSlide = (index)=>{
-            heroSlidesRow.style.transition='transform 0.6s ease-in-out';
-            heroSlidesRow.style.transform = `translateX(${-index*heroSlideWidth}px)`;
-            heroIndex=index;
+    // 1. 슬라이드 복제 (무한 루프)
+    const firstClone = heroSlideElems[0].cloneNode(true);
+    const lastClone = heroSlideElems[heroTotal-1].cloneNode(true);
+    heroSlidesRow.appendChild(firstClone);
+    heroSlidesRow.insertBefore(lastClone, heroSlideElems[0]);
+    heroIndex = 1; // 실제 첫 슬라이드는 index 1
 
-            if(index>=heroTotal){
-                setTimeout(()=>{
-                    heroSlidesRow.style.transition='none';
-                    heroSlidesRow.style.transform=`translateX(0px)`;
-                    heroIndex=0;
-                },600);
-            }
-            if(index<0){
-                setTimeout(()=>{
-                    heroSlidesRow.style.transition='none';
-                    heroSlidesRow.style.transform=`translateX(${- (heroTotal-1)*heroSlideWidth}px)`;
-                    heroIndex=heroTotal-1;
-                },600);
-            }
-        };
+    heroSlidesRow.style.transform = `translateX(${-heroIndex*heroSlideWidth}px)`;
 
-        heroPrevBtn.addEventListener('click', ()=>showHeroSlide(heroIndex-1));
-        heroNextBtn.addEventListener('click', ()=>showHeroSlide(heroIndex+1));
+    // 2. 슬라이드 이동 함수
+    const moveToSlide = (targetIndex)=>{
+        if(isTransitioning) return; // 이동 중이면 무시
+        isTransitioning = true;
 
-        const startHeroAuto = ()=>{
-            clearInterval(heroAutoTimer);
-            heroAutoTimer = setInterval(()=>showHeroSlide(heroIndex+1),10000);
-        };
-        startHeroAuto();
+        heroSlidesRow.style.transition = 'transform 0.6s ease-in-out';
+        heroSlidesRow.style.transform = `translateX(${-targetIndex*heroSlideWidth}px)`;
+        heroIndex = targetIndex;
+    };
 
-        sliderEl.addEventListener('mouseenter', ()=>clearInterval(heroAutoTimer));
-        sliderEl.addEventListener('mouseleave', startHeroAuto);
+    // 3. transitionend 이벤트로 무한 루프 처리
+    heroSlidesRow.addEventListener('transitionend', ()=>{
+        if(heroIndex === 0){ // 마지막 클론에서 첫 슬라이드로 점프
+            heroSlidesRow.style.transition = 'none';
+            heroIndex = heroTotal;
+            heroSlidesRow.style.transform = `translateX(${-heroIndex*heroSlideWidth}px)`;
+        }
+        if(heroIndex === heroTotal + 1){ // 첫 클론에서 마지막 슬라이드로 점프
+            heroSlidesRow.style.transition = 'none';
+            heroIndex = 1;
+            heroSlidesRow.style.transform = `translateX(${-heroIndex*heroSlideWidth}px)`;
+        }
+        isTransitioning = false;
+    });
 
-        // Drag
-        let heroStartX=0, heroCurrentX=0, heroIsDragging=false, heroInitialTranslate=0;
+    // 4. 버튼 클릭
+    heroPrevBtn.addEventListener('click', ()=>moveToSlide(heroIndex-1));
+    heroNextBtn.addEventListener('click', ()=>moveToSlide(heroIndex+1));
 
-        const setTranslateX = (val)=>{ heroSlidesRow.style.transition='none'; heroSlidesRow.style.transform=`translateX(${val}px)`; };
-        const resetTranslate = ()=>{ heroSlidesRow.style.transition='transform 0.6s ease-in-out'; heroSlidesRow.style.transform=`translateX(${-heroIndex*heroSlideWidth}px)`; };
+    // 5. 자동 슬라이드
+    const startAuto = ()=>{
+        clearInterval(heroAutoTimer);
+        heroAutoTimer = setInterval(()=>moveToSlide(heroIndex+1),10000);
+    };
+    startAuto();
+    sliderEl.addEventListener('mouseenter', ()=>clearInterval(heroAutoTimer));
+    sliderEl.addEventListener('mouseleave', startAuto);
 
-        const dragStart = x=>{ heroIsDragging=true; heroStartX=x; heroInitialTranslate=-heroIndex*heroSlideWidth; heroSlidesRow.style.cursor='grabbing'; };
-        const dragMove = x=>{ if(!heroIsDragging) return; heroCurrentX=x; setTranslateX(heroInitialTranslate + (heroCurrentX-heroStartX)); };
-        const dragEnd = ()=>{
-            if(!heroIsDragging) return;
-            heroIsDragging=false;
-            heroSlidesRow.style.cursor='grab';
-            const diff = heroCurrentX-heroStartX;
-            if(Math.abs(diff)>heroSlideWidth/4){
-                heroIndex = diff>0 ? heroIndex-1 : heroIndex+1;
-            }
-            showHeroSlide(heroIndex);
-        };
+    // 6. 드래그
+    let startX=0, currentX=0, isDragging=false, initialTranslate=0;
 
-        sliderEl.addEventListener('touchstart', e=>dragStart(e.touches[0].clientX));
-        sliderEl.addEventListener('touchmove', e=>dragMove(e.touches[0].clientX));
-        sliderEl.addEventListener('touchend', dragEnd);
+    const setTranslate = (val)=>{ heroSlidesRow.style.transition='none'; heroSlidesRow.style.transform=`translateX(${val}px)`; };
+    const resetTranslate = ()=>{ heroSlidesRow.style.transition='transform 0.6s ease-in-out'; heroSlidesRow.style.transform=`translateX(${-heroIndex*heroSlideWidth}px)`; };
 
-        sliderEl.addEventListener('mousedown', e=>{
-            e.preventDefault();
-            dragStart(e.clientX);
-            const onMove = e2=>dragMove(e2.clientX);
-            const onUp = ()=>{
-                dragEnd();
-                document.removeEventListener('mousemove', onMove);
-                document.removeEventListener('mouseup', onUp);
-            };
-            document.addEventListener('mousemove', onMove);
-            document.addEventListener('mouseup', onUp);
-        });
-
-        window.addEventListener('resize', ()=>{
-            heroSlideWidth = sliderEl.offsetWidth;
+    const dragStart = x=>{
+        isDragging=true;
+        startX=x;
+        initialTranslate=-heroIndex*heroSlideWidth;
+        heroSlidesRow.style.cursor='grabbing';
+    };
+    const dragMove = x=>{
+        if(!isDragging) return;
+        currentX=x;
+        setTranslate(initialTranslate + (currentX-startX));
+    };
+    const dragEnd = ()=>{
+        if(!isDragging) return;
+        isDragging=false;
+        heroSlidesRow.style.cursor='grab';
+        const diff = currentX - startX;
+        if(Math.abs(diff) > heroSlideWidth/4){
+            moveToSlide(diff>0 ? heroIndex-1 : heroIndex+1);
+        } else {
             resetTranslate();
-        });
+        }
+    };
 
-        showHeroSlide(0);
-    }
+    sliderEl.addEventListener('mousedown', e=>{
+        e.preventDefault();
+        dragStart(e.clientX);
+        const onMove = e2=>dragMove(e2.clientX);
+        const onUp = ()=>{
+            dragEnd();
+            document.removeEventListener('mousemove', onMove);
+            document.removeEventListener('mouseup', onUp);
+        };
+        document.addEventListener('mousemove', onMove);
+        document.addEventListener('mouseup', onUp);
+    });
+    sliderEl.addEventListener('touchstart', e=>dragStart(e.touches[0].clientX));
+    sliderEl.addEventListener('touchmove', e=>dragMove(e.touches[0].clientX));
+    sliderEl.addEventListener('touchend', dragEnd);
+
+    // 7. 리사이즈
+    window.addEventListener('resize', ()=>{
+        heroSlideWidth = sliderEl.offsetWidth;
+        heroSlidesRow.style.transition='none';
+        heroSlidesRow.style.transform = `translateX(${-heroIndex*heroSlideWidth}px)`;
+    });
+}
 
     /* ===========================
        4. Small Products Carousel

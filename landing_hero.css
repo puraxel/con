@@ -654,7 +654,7 @@ section.crossing {
 
 /* 초기 위치 */
 .c_row.left  { transform: translateX(-50px); }
-.c_row.right { transform: translateX(50px); }
+.c_row.right { transform: translateX(0); }
 
 /* 나타날 때 상태 */
 .c_row.left.fade-in-left,
@@ -703,6 +703,13 @@ section.crossing {
   line-height: 1.7;
 }
 
+@media (max-width: 768px) {
+  .c_row.left,
+  .c_row.right {
+      transform: translateX(0);
+  }
+}
+	
 /* PC 이상 */
 @media (min-width: 768px) {
 section.crossing {

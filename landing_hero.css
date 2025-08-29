@@ -843,7 +843,7 @@ section.cta {
 .cta {
    /* background: linear-gradient(135deg, #242424, #0066ff);*/
     background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-                               url('E:/이소영/lsy/test9.png');
+                               url('image/test10.png');
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
@@ -873,7 +873,8 @@ section.cta {
 }
 
 .cta a.btn:hover {
-    transform: scale(1.05);
+--------------------------- */
+   /* transform: scale(1.05);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 10px #ccc;
 }
 

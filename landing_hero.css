@@ -362,8 +362,8 @@ section.slide-left {
 }
 
 section.slide-right {
-    transform: translateX(50px);
-}
+    transform: translateX(0); }
+
 
 section.animate.slide-left,
 section.animate.slide-right {

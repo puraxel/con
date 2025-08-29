@@ -837,7 +837,7 @@ section#testimonials {
    CTA Section
 --------------------------- */
 section.cta {
-     width: 100w;
+     width: 100%;
     max-width: none;
 	}
 .cta {

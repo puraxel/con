@@ -624,8 +624,8 @@ section.products {
 --------------------------- */
 @media (max-width: 768px) {
     :root {
-        --visible: 1.1;
-        --gap: 8px;
+        --visible: 0.9;
+        --gap: 0px;
     }
 
     .Lcarousel {

@@ -852,14 +852,16 @@ section.cta {
 .cta::before {
     content: "";
     position: fixed;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0;
+    left: 0;
+    width: 100vw;  /* 뷰포트 기준 */
+    height: 100vh; /* 뷰포트 기준 */
     background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
                 url('image/test4.png') center center / cover no-repeat;
     z-index: -1;
     pointer-events: none;
 }
+
 
 .cta a.btn {
     display : inline-block;

@@ -1167,11 +1167,14 @@ section#team {
 /* ---------------------------
    Timeline Section
 --------------------------- */
+section.timeline {
+  max-width: 800px; 
+  margin: 0 auto;
+  }
 .timeline-container {
-  max-width: 800px;
   margin: 0 auto;
   position: relative;
-  padding-left: 40px;
+  padding: 0 0 0 40px;
 }
 .timeline-container::before {
   content: '';

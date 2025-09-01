@@ -1171,7 +1171,7 @@ section#team {
   max-width: 800px;
   margin: 0 auto;
   position: relative;
-  /*padding-left: 40px;*/
+  padding-left: 40px;
 }
 .timeline-container::before {
   content: '';

@@ -796,9 +796,10 @@ section#testimonials {
 }
 
 .testimonials .slide p {
+	width : 80%;
     font-size: 1rem;
     line-height: 1.6;
-    margin: 30px 0 12px;
+    margin: 30px auto 12px;
 }
 
 .testimonials .slide h4 {

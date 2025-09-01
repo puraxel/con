@@ -778,7 +778,7 @@ section#testimonials {
 }
 
 .testimonials .slide {
-    width: 90%;
+    width: 100%;
     padding: 16px;
     background: rgba(255, 255, 255, 0.1);
 	height: 50vh;
@@ -796,7 +796,7 @@ section#testimonials {
 }
 
 .testimonials .slide p {
-	width : 70%;
+	width : 80%;
     font-size: 1rem;
     line-height: 1.6;
     margin: 30px auto 12px;

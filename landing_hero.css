@@ -499,8 +499,8 @@ section#features {
    Products LCarousel
 --------------------------- */
 section.products {
-    width: 100vw;
-    max-width: none;
+    width: 100%;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;

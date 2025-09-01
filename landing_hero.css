@@ -778,7 +778,7 @@ section#testimonials {
 }
 
 .testimonials .slide {
-    min-width: 100%;
+    width: 100%;
     padding: 16px;
     background: rgba(255, 255, 255, 0.1);
 	height: 50vh;

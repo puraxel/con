@@ -335,7 +335,7 @@ section.hero {
      }
 
     /* responsive tweaks */
-    @media (max-width:600px) {
+    @media (max-width:768px) {
       .Lhero h1 { font-size:2rem; }
       .Lhero p { font-size:1rem; }
 	  .hero_content { width : 90%}
@@ -796,7 +796,7 @@ section#testimonials {
 }
 
 .testimonials .slide p {
-	width : 80%;
+    width : 80%;
     font-size: 1rem;
     line-height: 1.6;
     margin: 30px auto 12px;
@@ -1177,7 +1177,7 @@ section#team {
   content: '';
   position: absolute;
   top: 0;
-  left: 20px; 
+  left: 20px;
   width: 4px;
   height: 100%;
   background: #555;
@@ -1306,7 +1306,7 @@ section#contact {
     /* X 버튼 */
     .close-btn {
       position: absolute;
-      top: -10px;
+      top: -20px;
       right: -2px;
       background: rgba(255,255,255,0);
       border: none;
@@ -1339,7 +1339,7 @@ section#contact {
 	 display: block;
       margin: 0;
       padding: 4px;
-      font-size: 11px;
+      font-size: 10px;
       cursor: pointer;
       transition: background 0.3s ease, box-shadow 0.3s ease;
       box-shadow: 0 2px 4px rgba(0,0,0,0);

@@ -1342,7 +1342,7 @@ section.awards {
   justify-content: center;
   align-items: center;
   margin-bottom: 10px; /* 카드와 마커 간 간격 확보 */
-  margin: 0 5px;
+  margin: 0 10px;
   padding: 5px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.5);
   flex: 0 0 auto; /* 모바일에서 늘어나지 않도록 고정 */

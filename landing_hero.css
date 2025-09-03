@@ -1336,7 +1336,7 @@ section.awards {
   .awards-marker {
   background: #2c2c2c; /* 마커 어두운 배경 */
 /*  border-radius: 50%; */
-  width: 150px;
+  width: 130px;
   height: auto;
   display: flex;
   justify-content: center;

@@ -1328,7 +1328,7 @@ section.awards {
     margin: 40px 0;
   }
   .awards-content {
-    width: 100%;
+    width: 90%;
     text-align: center !important;
     margin-top: 20px; /* 마커와 겹치지 않도록 간격 확보 */
   }

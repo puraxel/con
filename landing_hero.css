@@ -1332,10 +1332,21 @@ section.awards {
     text-align: center !important;
     margin-top: 20px; /* 마커와 겹치지 않도록 간격 확보 */
   }
+
   .awards-marker {
-    margin-bottom: 10px; /* 카드와 마커 간 간격 확보 */
-    flex: 0 0 auto; /* marker 크기 고정 */
-  }
+  background: #2c2c2c; /* 마커 어두운 배경 */
+/*  border-radius: 50%; */
+  width: 100px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px; /* 카드와 마커 간 간격 확보 */
+  margin: 0 20px;
+  padding: 5px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  flex: 0 0 auto; /* 모바일에서 늘어나지 않도록 고정 */
+}
   .awards-track::before {
     left: 50%;
   }

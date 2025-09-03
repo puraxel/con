@@ -869,7 +869,7 @@ section.cta {
 .cta {
    /* background: linear-gradient(135deg, #242424, #0066ff);*/
     background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-                               url('image/test.png');
+                               url('https://puraxel.github.io/con/image/test.png');
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
@@ -1144,7 +1144,7 @@ section#team {
   padding: 24px;
   border-radius: 12px;
   text-align: center;
-  width: 220px;
+  width: 20%;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .team-card:hover {
@@ -1164,6 +1164,11 @@ section#team {
   color: #ccc;
 }
 
+@media screen and (max-width: 768px) {
+   .team-card {
+     width: 60%;
+}
+}
 /* ---------------------------
    Timeline Section
 --------------------------- */
@@ -1211,6 +1216,131 @@ section.timeline {
   background: #fff;
   border-radius: 50%;
 }
+
+/*  ---------------------------
+Awards / Certifications Section
+ --------------------------- */
+section.awards {
+   width: 100%;
+   background-color: #1a1a1a; 
+   }
+.awards-timeline {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 80px 20px;
+/*  background-color: #1a1a1a;  어두운 배경 */
+  color: #f0f0f0; /* 기본 텍스트 밝게 */
+}
+
+.awards-timeline h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.awards-track {
+  position: relative;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.awards-track::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 4px;
+  height: 100%;
+  background: #555; /* 타임라인 선 어둡게 */
+  transform: translateX(-50%);
+}
+
+.awards-item {
+  display: flex;
+  align-items: center;
+  margin: 60px 0;
+  position: relative;
+  width: 100%;
+}
+
+/* 좌우 배치 */
+.awards-item.left {
+  flex-direction: row;
+}
+
+.awards-item.right {
+  flex-direction: row-reverse;
+}
+
+/* 카드 텍스트 정렬 */
+.awards-item.left .awards-content {
+  text-align: left;
+}
+
+.awards-item.right .awards-content {
+  text-align: right;
+}
+
+.awards-content {
+  background: #2c2c2c; /* 카드 어두운 배경 */
+  border-radius: 16px;
+  padding: 25px 20px;
+  width: 45%;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  font-size: 0.95rem;
+  color: #f0f0f0;
+}
+
+.awards-content h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  /*color: #ffd700;  제목 강조 */
+}
+
+.awards-marker {
+  background: #2c2c2c; /* 마커 어두운 배경 */
+/*  border-radius: 50%; */
+  width: 200px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 20px;
+  padding: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+
+  flex: 0 0 auto; /* 모바일에서 늘어나지 않도록 고정 */
+}
+
+.awards-marker img {
+  width: 100%;
+   height: auto;
+  /* height: 50px; */
+  object-fit: contain;
+}
+
+/* Responsive - 모바일 대응 */
+@media screen and (max-width: 900px) {
+  .awards-item {
+    flex-direction: column;
+    align-items: center;
+    margin: 40px 0;
+  }
+  .awards-content {
+    width: 90%;
+    text-align: center !important;
+    margin-top: 20px; /* 마커와 겹치지 않도록 간격 확보 */
+  }
+  .awards-marker {
+    margin-bottom: 10px; /* 카드와 마커 간 간격 확보 */
+    flex: 0 0 auto; /* marker 크기 고정 */
+  }
+  .awards-track::before {
+    left: 50%;
+  }
+}
+
 
 /* ---------------------------
    Map / Contact Section
@@ -1309,7 +1439,7 @@ section#contact {
     /* X 버튼 */
     .close-btn {
       position: absolute;
-      top: -20px;
+      top: -10px;
       right: -2px;
       background: rgba(255,255,255,0);
       border: none;
@@ -1334,15 +1464,16 @@ section#contact {
 
     /* 오늘 안보기 버튼 */
     .hide-today-btn {
-       background: rgba(255,255,255,0);
+       background: rgba(255,255,255,0.3);
       color: #fff;
       border: none;
-      /* border-radius: 0px; */
+       border-radius: 50px; 
 	  width:100%;
-	 display: block;
-      margin: 0;
+	  display: block;
+      margin-top: 5px;
       padding: 4px;
-      font-size: 10px;
+      font-size: 11px;
+	  font-weight: 300;
       cursor: pointer;
       transition: background 0.3s ease, box-shadow 0.3s ease;
       box-shadow: 0 2px 4px rgba(0,0,0,0);

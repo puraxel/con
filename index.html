@@ -1,637 +1,547 @@
-if (/Mobi|Android/i.test(navigator.userAgent)) {
-  const header = document.querySelector('header');
-  window.addEventListener('scroll', () => {
-    header.style.top = window.scrollY + 'px';
-  });
-}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Landing_test</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">	
+<link rel="stylesheet" type="text/css" href="landing_hero.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script type="text/javascript" src="landing_hero.js"></script>
+</head>
+<body>
 
+<header>
+    <div class="logo"><a href="#Lhero">BRAND SY</a></div>
+    <nav>
+        <a href="#features">특징</a>
+		<a href="#products">구성</a>
+        <!-- <a href="#crossing">사양</a> -->
+        <a href="#testimonials">사용후기</a>
+        <a href="#contact">문의</a>
+        <!-- <a href="#contact">연락처</a> -->
+    </nav>
+</header>
+
+<!-- Hero -->
+<section id="Lhero" class="Lhero" data-parallax>
+    <div class="hero_slider">
+
+      <div class="hero_slides">
+        <div class="hero_slide">
+          <div class="lvideo-iframe">
+            <iframe
+              src="https://www.youtube.com/embed/WRBw1zY3A1g?autoplay=1&mute=1&loop=1&playlist=WRBw1zY3A1g&controls=0&modestbranding=1&rel=0"
+              allow="autoplay; fullscreen"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+          <div class="hero_content">
+            <h1 id="lhero-title">Innovative &nbsp;Solutions</h1>
+            <p>Providing the optimal experience with<br>cutting-edge technology and design.</p>
+            <a href="#cta" class="btn">Start Now</a>
+          </div>
+        </div>
+
+        <!-- 2nd slide: image -->
+        <div class="hero_slide">
+          <img src="image/test4.png" alt="이미지1">
+           <div class="hero_content">
+            <h1 id="lhero-title">Innovative &nbsp;Solutions</h1>
+            <p>Providing the optimal experience with<br>cutting-edge technology and design.</p>
+            <a href="#cta" class="btn">Start Now</a>
+          </div>
+        </div>
+
+        <!-- 3rd slide: image -->
+        <!-- <div class="hero_slide">
+          <img src="image/test10.png" alt="이미지2">
+          <div class="hero_content">
+            <h1 id="lhero-title">Innovative &nbsp;Solutions</h1>
+            <p>Providing the optimal experience with<br>cutting-edge technology and design.</p>
+            <a href="#cta" class="btn">Start Now</a>
+          </div>
+        </div> -->
+		 <div class="hero_slide">
+          <video class="htms-video" loop autoplay muted poster="">
+                  <source type="video/mp4" src="image/model_1920-.mp4">
+            </video>
+          <div class="hero_content">
+            <h1 id="lhero-title">Innovative &nbsp;Solutions</h1>
+            <p>Providing the optimal experience with<br>cutting-edge technology and design.</p>
+            <a href="#cta" class="btn">Start Now</a>
+          </div>
+        </div>
+
+		<!-- .hero_slides END -->
+
+     </div> <!-- .hero_slider END -->
+	  <!-- controls -->
+      <button class="hero_prev" aria-label="Previous slide">&#10094;</button>
+      <button class="hero_next" aria-label="Next slide">&#10095;</button>
+  </section>
+
+<!-- Features -->
+<section id="features" class="slide-left" data-parallax style="background-image:url('<img src=?text=Features+BG');">
+  <h2 style="text-align:center;margin-bottom:40px;">주요 특징</h2>
+  <div class="features">
+    <div class="card"><img src="image/test4.png"><h3>고성능</h3><p>최신 기술 적용으로 효율과 안정성을 제공합니다.</p></div>
+    <div class="card"><img src="image/test8.png"><h3>사용자 친화적</h3><p>직관적 UI와 UX로 누구나 쉽게 사용 가능합니다.</p></div>
+    <div class="card"><img src="image/test10.png"><h3>신뢰성</h3><p>엄격한 품질 관리로 안정성과 내구성을 보장합니다.</p></div>
+    <div class="card"><img src="image/test13.png"><h3>혁신적 디자인</h3><p>세련되고 현대적인 디자인으로 시각적 만족을 제공합니다.</p></div>
+    <!-- <div class="card"><img src="image/test.png"><h3>유연한 확장성</h3><p>다양한 환경과 요구사항에 맞게 확장 가능합니다.</p></div>
+    <div class="card"><img src="image/test2.png"><h3>24/7 지원</h3><p>전문적인 고객 지원으로 안정적인 서비스를 제공합니다.</p></div> -->
+  </div>
+</section>
+	
+<!-- Products Carousel -->
+<section  id="products" class="products">
+<h2 style="text-align:center;margin-bottom:40px;">COMPOSITION</h2>
+  <div class="Lcarousel" >
+    <button class="Lnav prev" aria-label="이전">◀</button>
+    <div class="viewport">
+      <ul class="track">
+        <li class="slide">
+		       <div class="lcard"><a href=""><img src="image/test4.png"></a></div>
+	    </li>
+        <li class="slide">
+		       <div class="lcard"><a href=""><img src="image/test5.png"></a></div>
+	    </li>
+		<li class="slide">
+		       <div class="lcard"><a href=""><img src="image/test10.png"></a></div>
+	    </li>
+		<li class="slide">
+		       <div class="lcard"><a href=""><img src="image/test6.png"></a></div>
+	    </li>
+		<li class="slide">
+		       <div class="lcard"><a href=""><img src="image/test14.png"></a></div>
+	    </li>
+		<li class="slide">
+		       <div class="lcard"><a href=""><img src="image/test10.png"></a></div>
+	    </li>
+      </ul>
+    </div>
+    <button class="Lnav next" aria-label="다음">▶</button>
+    <div class="dots"></div>
+  </div>
+</section>
+
+<!-- crossing -->
+<section id="crossing" class="crossing">
+<h2 style="text-align:center;margin-bottom:40px;">SPEC</h2>
+    <div class="c_row">
+      <div class="c_media">
+        <figure>
+		   <a href="" target="_parent">
+		   <video class="htms-video" loop autoplay muted poster="">
+                  <source type="video/mp4" src="image/model_hair07-.mp4">
+            </video>
+		    </a>
+		</figure>
+      </div>
+      <div class="c_content">
+        <h3>첫 번째 제목</h3>
+        <p>국가는 법률이 정하는 바에 의하여 재외국민을 보호할 의무를 진다. 이 헌법시행 당시의 법령과 조약은 이 헌법에 위배되지 아니하는 한 그 효력을 지속한다. 모든 국민은 근로의 권리를 가진다. 국가는 사회적·경제적 방법으로 근로자의 고용의 증진과 적정임금의 보장에 노력하여야 하며, 법률이 정하는 바에 의하여 최저임금제를 시행하여야 한다.</p>
+      </div>
+    </div>
+
+    <div class="c_row">
+      <div class="c_media">
+        <figure><img src="image/test12.png" alt="섹션 2 이미지"></figure>
+      </div>
+      <div class="c_content">
+        <h3>두 번째 제목</h3>
+        <p>모든 국민은 주거의 자유를 침해받지 아니한다. 주거에 대한 압수나 수색을 할 때에는 검사의 신청에 의하여 법관이 발부한 영장을 제시하여야 한다. 대통령은 국무회의의 의장이 되고, 국무총리는 부의장이 된다. 국회의원은 법률이 정하는 직을 겸할 수 없다. 위원은 탄핵 또는 금고 이상의 형의 선고에 의하지 아니하고는 파면되지 아니한다. 군사재판을 관할하기 위하여 특별법원으로서 군사법원을 둘 수 있다</p>
+      </div>
+    </div>
+
+    <div class="c_row">
+      <div class="c_media">
+         <figure >
+			<a href="" target="_parent">
+		   <video class="htms-video" loop autoplay muted poster="">
+                  <source type="video/mp4" src="image/model_hair06-.mp4">
+            </video>
+		    </a>
+        </figure>
+      </div>
+      <div class="c_content">
+        <h3>세 번째 제목</h3>
+        <p>군인은 현역을 면한 후가 아니면 국무위원으로 임명될 수 없다. 대법원장과 대법관이 아닌 법관은 대법관회의의 동의를 얻어 대법원장이 임명한다. 국회는 상호원조 또는 안전보장에 관한 조약, 중요한 국제조직에 관한 조약, 우호통상항해조약, 주권의 제약에 관한 조약, 강화조약, 국가나 국민에게 중대한 재정적 부담을 지우는 조약 또는 입법사항에 관한 조약의 체결·비준에 대한 동의권을 가진다.</p>
+      </div>
+    </div>
+</section>
+ 
+ <!--  Stats Section -->
+<section id="stats" class="stats slide-left">
+  <h2 style="text-align:center;margin-bottom:40px;">Our Impact</h2>
+  <div class="stats-grid">
+    <div class="stat-card">
+      <h3 class="count" data-target="14000">0</h3>
+      <p>Happy Customers</p>
+    </div>
+    <div class="stat-card">
+      <h3 class="count" data-target="120">0</h3>
+      <p>Projects Completed</p>
+    </div>
+    <div class="stat-card">
+      <h3 class="count" data-target="99.9">0</h3>
+      <p>Uptime (%)</p>
+    </div>
+  </div>
+</section>
+
+<!-- Timeline / Roadmap Section -->
+<section id="timeline" class="timeline slide-right">
+  <h2 style="text-align:center;margin-bottom:40px;">Product Roadmap</h2>
+  <div class="timeline-container">
+    <div class="timeline-item">
+      <div class="timeline-date">Q1 2025</div>
+      <div class="timeline-content">Concept & Design</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">Q2 2025</div>
+      <div class="timeline-content">MVP Launch</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">Q3 2025</div>
+      <div class="timeline-content">Feature Expansion</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">Q4 2025</div>
+      <div class="timeline-content">Official Release</div>
+    </div>
+  </div>
+</section>
+
+<!-- Awards / Certifications Timeline Section -->
+<section id="awards" class="awards">
+  <div class="awards-timeline">
+    <h2 style="text-align:center;margin-bottom:60px;">Awards & Certifications</h2>
+    <div class="awards-track">
+
+      <div class="awards-item left">
+        <div class="awards-content">
+          <h4>Best Innovation 2025</h4>
+          <p>Recognized for cutting-edge design and technology.</p>
+        </div>
+        <div class="awards-marker">
+          <img src="image/test15.png" alt="Award 1">
+        </div>
+      </div>
+
+      <div class="awards-item right">
+        <div class="awards-content">
+          <h4>ISO 9001 Certified</h4>
+          <p>Maintaining highest standards of quality management.</p>
+        </div>
+        <div class="awards-marker">
+          <img src="image/test14.png" alt="Certification 1">
+        </div>
+      </div>
+
+      <div class="awards-item left">
+        <div class="awards-content">
+          <h4>Design Excellence Award</h4>
+          <p>Honored for innovative and user-friendly design.</p>
+        </div>
+        <div class="awards-marker">
+          <img src="image/test12.png" alt="Award 2">
+        </div>
+      </div>
+
+      <div class="awards-item right">
+        <div class="awards-content">
+          <h4>Environmental Standard ISO 14001</h4>
+          <p>Committed to sustainable and eco-friendly practices.</p>
+        </div>
+        <div class="awards-marker">
+          <img src="image/test6.png" alt="Certification 2">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section id="testimonials" class="slide-left testimonials">
+  <h2>Review</h2>
+  <div class="slides">
+    <div class="slide"><p>"사법권은 법관으로 구성된 법원에 속한다. 국교는 인정되지 아니하며, 종교와 정치는 분리된다."</p><h4>- momimo</h4><div class="stars">★★★★★</div></div>
+    <div class="slide"><p>"국민경제자문회의의 조직·직무범위 기타 필요한 사항은 법률로 정한다."</p><h4>- Doraemon</h4><div class="stars">★★★★☆</div></div>
+    <div class="slide"><p>"교육의 자주성·전문성·정치적 중립성 및 대학의 자율성은 법률이 정하는 바에 의하여 보장된다."</p><h4>- Fubao</h4><div class="stars">★★★★★</div></div>
+	<div class="slide"><p>"사법권은 법관으로 구성된 법원에 속한다. 국교는 인정되지 아니하며, 종교와 정치는 분리된다."</p><h4>- momimo</h4><div class="stars">★★★★★</div></div>
+    <div class="slide"><p>"국민경제자문회의의 조직·직무범위 기타 필요한 사항은 법률로 정한다."</p><h4>- Doraemon</h4><div class="stars">★★★★☆</div></div>
+    <div class="slide"><p>"교육의 자주성·전문성·정치적 중립성 및 대학의 자율성은 법률이 정하는 바에 의하여 보장된다."</p><h4>- Fubao</h4><div class="stars">★★★★★</div></div>
+  </div>
+</section>
+
+<!--  Team Section -->
+<section id="team" class="team slide-left">
+  <h2 style="text-align:center;margin-bottom:40px;">Product Lineup</h2>
+  <div class="team-grid">
+    <div class="team-card">
+      <img src="image/test4.png" alt="Team Member">
+      <h4>Product Name</h4>
+      <p>Product Description</p>
+    </div>
+    <div class="team-card">
+      <img src="image/test8.png" alt="Team Member">
+      <h4>Product Name</h4>
+      <p>Product Description</p>
+    </div>
+    <div class="team-card">
+      <img src="image/test10.png" alt="Team Member">
+      <h4>Product Name</h4>
+      <p>Product Description</p>
+    </div>
+	 <div class="team-card">
+      <img src="image/test12.png" alt="Team Member">
+      <h4>Product Name</h4>
+      <p>Product Description</p>
+    </div>
+	
+  </div>
+</section>
+
+<!--  FAQ Section -->
+<section id="faq" class="faq slide-right">
+  <h2 style="text-align:center;margin-bottom:40px;">FAQ</h2>
+  <div class="faq-item">
+    <button class="faq-question">제품 보증 기간은 어떻게 되나요?</button>
+    <div class="faq-answer">
+      <p>모든 제품은 1년 무상 보증을 제공합니다. 모든 제품은 1년 무상 보증을 제공합니다. 모든 제품은 1년 무상 보증을 제공합니다. 모든 제품은 1년 무상 보증을 제공합니다. 모든 제품은 1년 무상 보증을 제공합니다. 모든 제품은 1년 무상 보증을 제공합니다. 모든 제품은 1년 무상 보증을 제공합니다.</p>
+    </div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-question">배송은 얼마나 걸리나요?</button>
+    <div class="faq-answer">
+      <p>평균 3~5일 소요되며, 지역에 따라 다를 수 있습니다.</p>
+    </div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-question">제품 보증 기간은 어떻게 되나요?</button>
+    <div class="faq-answer">
+      <p>모든 제품은 1년 무상 보증을 제공합니다.</p>
+    </div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-question">배송은 얼마나 걸리나요?</button>
+    <div class="faq-answer">
+      <p>평균 3~5일 소요되며, 지역에 따라 다를 수 있습니다.</p>
+    </div>
+  </div>
+  <div class="faq-buttons">
+  <button id="open-all">모든 답변 열기</button>
+  <button id="close-all">모든 답변 닫기</button>
+</div>
+</section>
+
+<!-- Download Section -->
+<section id="download" class="download slide-right">
+  <h2>제품 브로셔 다운로드</h2>
+  <p>상세 스펙과 활용 가이드를 PDF로 확인하세요.</p>
+ <div class="download-con">
+  <div class="download-grid">
+    <!-- 첫 번째 브로셔 -->
+    <div class="download-card">
+      <i class="fa-solid fa-file-pdf"></i>
+      <h3>제품 카탈로그</h3>
+      <p>전체 라인업과 특징을 한눈에.</p>
+      <div class="download-actions">
+        <a href="image/test8.png" class="btn download-btn" target="_blank" download>
+          다운로드
+        </a>
+        <!-- <a href="pdf/catalog.pdf" class="btn preview-btn" target="_blank">
+          미리보기
+        </a> -->
+      </div>
+    </div>
+
+    <!-- 두 번째 브로셔 -->
+    <div class="download-card">
+      <i class="fa-solid fa-file-pdf"></i>
+      <h3>기술 스펙 시트</h3>
+      <p>제품별 상세 사양 정리.</p>
+      <div class="download-actions">
+        <a href="image/test8.png" class="btn download-btn" target="_blank" download>
+          다운로드
+        </a>
+        <!-- <a href="pdf/specsheet.pdf" class="btn preview-btn" target="_blank">
+          미리보기
+        </a> -->
+      </div>
+    </div>
+
+    <!-- 세 번째 브로셔 -->
+    <div class="download-card">
+      <i class="fa-solid fa-file-pdf"></i>
+      <h3>활용 가이드</h3>
+      <p>효율적 사용을 위한 안내서.</p>
+      <div class="download-actions">
+        <a href="image/test8.png" class="btn download-btn" target="_blank"  download>
+          다운로드
+        </a>
+        <!-- <a href="image/test8.png" class="btn preview-btn" target="_blank">
+          미리보기
+        </a> -->
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- PDF 미리보기 모달 -->
+<div id="pdfModal" class="pdf-modal">
+  <div class="pdf-modal-content">
+    <span class="pdf-close-modal">&times;</span>
+    <iframe id="pdfViewer" src="" frameborder="0"></iframe>
+  </div>
+</div>
+
+<!-- CTA -->
+<section id="cta" class="cta slide-right" data-parallax >
+  <h2>지금 바로 체험해보세요</h2>
+  <a href="#contact" class="btn">문의하기</a>
+</section>
+
+<!-- Map / Contact Section -->
+<section id="contact" class="contact slide-left">
+  <h2 style="text-align:center;margin-bottom:40px;">Contact Us</h2>
+  <div class="contact-wrapper" style="display:flex;gap:20px;flex-wrap:wrap;">
+    
+    <!-- Google Map -->
+    <div class="map-container" style="flex:1;min-width:300px;">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3166.3528397905307!2d126.88352577589964!3d37.47599922931442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b61e13c9bce95%3A0x236b85f21ee492f2!2z7ISc7Jq47Yq567OE7IucIOq4iOyynOq1rCDrsprqvYProZwgMjM0!5e0!3m2!1sko!2skr!4v1756174597397!5m2!1sko!2skr"   width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+	   <p>08513 서울특별시 금천구 벚꽃로 234 10층 1002호<br>(가산동, 에이스 하이엔드타워6차)</p>
+    </div>
+   <!-- Contact Form -->
+    <!-- <form id="contact-form" class="contact-form" style="flex:1;min-width:300px;display:flex;flex-direction:column;gap:15px;" action="https://formspree.io/f/mqadzjgr" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="user_email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit" style="padding:10px 20px;cursor:pointer;">Send</button>
+    </form> -->
+	
+	<form id="contact-form" class="contact-form" style="flex:1;min-width:300px;display:flex;flex-direction:column;gap:15px;">
+      <input type="text" name="title" placeholder="Your Title" required>
+	  <input type="text" name="user_name" placeholder="Your Name" required>
+      <input type="email" name="user_email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit" id="submit-btn"  style="padding:10px 20px;cursor:pointer;">Send</button>
+	  <div id="form-status" style="margin-top:10px; font-size:0.9em;"></div>
+   </form>
+
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 LSY. All rights reserved.
+</footer>
+
+  <div id="popupBtn-left-bottom" class="popupBtn popupBtn-left-bottom">
+    <button class="close-btn">&times;</button>
+    <p><a href=""><img src="image/test8.png"></a></p>
+    <button class="hide-today-btn">하루 안보기</button>
+  </div>
+ 
+<a href="#" class="scroll-to-top" id="scrollToTop">^</a>
+
+<!-- EmailJS SDK -->
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+    // EmailJS 초기화
+    emailjs.init('bnXoZqISwb8Xpt71H'); // 여기에 EmailJS Public Key 입력
+
+    const form = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const statusDiv = document.getElementById('form-status');
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault(); // 폼 기본 제출 방지
+
+        // 로딩 상태 표시
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+        statusDiv.textContent = '';
+        statusDiv.style.color = '';
+
+        // EmailJS 전송
+        emailjs.sendForm('service_tuay11o', 'template_hhjxabe', this)
+        .then(() => {
+            // 성공 메시지
+            statusDiv.textContent = 'Message sent successfully!';
+            statusDiv.style.color = 'green';
+            form.reset();
+        }, (error) => {
+            // 실패 메시지
+            console.error('EmailJS Error:', error);
+            statusDiv.textContent = 'Failed to send message. Please try again.';
+            statusDiv.style.color = 'red';
+        })
+        .finally(() => {
+            // 버튼 상태 원복
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send';
+        });
+    });
+});
+</script>
+
+<script>
 document.addEventListener('DOMContentLoaded', () => {
+  const PDFModal = {
+    modal: document.getElementById('pdfModal'),
+    viewer: document.getElementById('pdfViewer'),
+    closeBtn: document.querySelector('.pdf-close-modal'),
+    body: document.body,
 
-    /* ===========================
-       1. Header Scroll, Footer, GoToTop, Popups, Parallax
-    =========================== */
-    const header = document.querySelector('header');
-    const popups = document.querySelectorAll('.popupBtn');
-    const scrollBtn = document.getElementById('scrollToTop');
-    const parallaxSections = document.querySelectorAll('section[data-parallax]');
+    open(pdfUrl) {
+      this.viewer.src = pdfUrl;
+      this.modal.style.display = 'flex';
+      this.body.classList.add('body-lock'); // 스크롤 잠금
+    },
 
-    function handleScroll() {
-        // 모바일/모든 브라우저 호환용 스크롤 위치
-        const scrollY = window.scrollY || document.documentElement.scrollTop;
+    close() {
+      this.modal.style.display = 'none';
+      this.viewer.src = '';
+      this.body.classList.remove('body-lock'); // 스크롤 해제
+    },
 
-        // header toggle (충돌 없는 최소 처리)
-        if(header) {
-            if(scrollY > 50) header.classList.add('scrolled');
-            else header.classList.remove('scrolled');
-        }
-
-        // popup toggle
-        popups.forEach(p => {
-            if(scrollY > 100) p.classList.add('show');
-            else p.classList.remove('show');
+    init() {
+      // 미리보기 버튼 클릭 이벤트
+      document.querySelectorAll('.preview-btn').forEach(button => {
+        button.addEventListener('click', e => {
+          e.preventDefault();
+          const pdfUrl = button.getAttribute('href');
+          PDFModal.open(pdfUrl);
         });
+      });
 
-        // Go to Top toggle
-        if(scrollBtn) {
-            if(scrollY > 300) scrollBtn.classList.add('show');
-            else scrollBtn.classList.remove('show');
-        }
+      // 닫기 버튼
+      this.closeBtn.addEventListener('click', () => this.close());
 
-        // parallax (섹션별 transform 독립 처리)
-        parallaxSections.forEach(section => {
-            const speed = 0.5;
-            // section 자체 offsetTop 기준으로 적용
-            const offset = section.offsetTop;
-            section.style.backgroundPosition = `center ${-(scrollY - offset) * speed}px`;
-        });
-    }
+      // 바깥 클릭 시 닫기
+      window.addEventListener('click', e => {
+        if (e.target === this.modal) this.close();
+      });
 
-    window.addEventListener('scroll', handleScroll);
-
-    // 초기 로딩 시에도 적용
-    window.addEventListener('load', () => requestAnimationFrame(handleScroll));
-    setTimeout(handleScroll, 100);
-    // Go to Top 클릭
-    if(scrollBtn){
-        scrollBtn.addEventListener('click', e => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    }
-
-    // 팝업 X, 하루 안보기
-    document.querySelectorAll('.close-btn').forEach(btn => {
-        btn.addEventListener('click', () => btn.parentElement.style.display = 'none');
-    });
-    document.querySelectorAll('.hide-today-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const popup = btn.parentElement;
-            const popupId = popup.id;
-            document.cookie = `${popupId}=hidden; path=/; max-age=${60*60*24}`;
-            popup.style.display = 'none';
-        });
-    });
-
-    function getCookie(name){
-        const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${name}=`);
-        if(parts.length === 2) return parts.pop().split(';').shift();
-        return null;
-    }
-
-    window.addEventListener('load', () => {
-        popups.forEach(popup => {
-            const popupId = popup.id;
-            if(getCookie(popupId) === 'hidden') popup.style.display = 'none';
-        });
-    });
-/* ---------------------------
-  nav 활성화
---------------------------- */
-const navLinks = document.querySelectorAll('header nav a');
-
-// id가 있는 section만 선택
-const sectionsWithId = document.querySelectorAll('section[id]');
-
-const navObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) {
-      const id = entry.target.id;
-      navLinks.forEach(link => {
-        link.classList.toggle('active', link.getAttribute('href').substring(1) === id);
+      // ESC 키 닫기
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') this.close();
       });
     }
-  });
-}, { threshold: 0.1 }); // 화면 중앙 근처에 왔을 때
+  };
 
-sectionsWithId.forEach(sec => navObserver.observe(sec));
-
-    /* ===========================
-       2. Hero Text Animation (Load 이후)
-    =========================== */
-    const heroTitle = document.querySelector('.hero h1');
-    if(heroTitle){
-        heroTitle.innerHTML = heroTitle.textContent
-            .split('')
-            .map(c => `<span style="display:inline-block; transform:translateY(40px); transition:0.5s;">${c}</span>`)
-            .join('');
-
-        const spans = heroTitle.querySelectorAll('span');
-        window.addEventListener('load', () => {
-            spans.forEach((s,i)=>setTimeout(()=>{ s.style.transform='translateY(0)'; }, i*50));
-        });
-    }
-
-   /* ===========================
-   Hero Slider (무한 루프 + Drag + Auto)
-=========================== */
-const sliderEl = document.querySelector('.hero_slider');
-const heroSlidesRow = document.querySelector('.hero_slides');
-const heroSlideElems = document.querySelectorAll('.hero_slide');
-const heroPrevBtn = document.querySelector('.hero_prev');
-const heroNextBtn = document.querySelector('.hero_next');
-
-if(sliderEl && heroSlidesRow && heroSlideElems.length>0 && heroPrevBtn && heroNextBtn){
-    let heroIndex = 0;
-    let heroSlideWidth = sliderEl.offsetWidth;
-    const heroTotal = heroSlideElems.length;
-    let heroAutoTimer;
-    let isTransitioning = false;
-
-    // 1. 슬라이드 복제 (무한 루프)
-    const firstClone = heroSlideElems[0].cloneNode(true);
-    const lastClone = heroSlideElems[heroTotal-1].cloneNode(true);
-    heroSlidesRow.appendChild(firstClone);
-    heroSlidesRow.insertBefore(lastClone, heroSlideElems[0]);
-    heroIndex = 1; // 실제 첫 슬라이드는 index 1
-
-    heroSlidesRow.style.transform = `translateX(${-heroIndex*heroSlideWidth}px)`;
-
-    // 2. 슬라이드 이동 함수
-    const moveToSlide = (targetIndex)=>{
-        if(isTransitioning) return; // 이동 중이면 무시
-        isTransitioning = true;
-
-        heroSlidesRow.style.transition = 'transform 0.6s ease-in-out';
-        heroSlidesRow.style.transform = `translateX(${-targetIndex*heroSlideWidth}px)`;
-        heroIndex = targetIndex;
-    };
-
-    // 3. transitionend 이벤트로 무한 루프 처리
-    heroSlidesRow.addEventListener('transitionend', ()=>{
-        if(heroIndex === 0){ // 마지막 클론에서 첫 슬라이드로 점프
-            heroSlidesRow.style.transition = 'none';
-            heroIndex = heroTotal;
-            heroSlidesRow.style.transform = `translateX(${-heroIndex*heroSlideWidth}px)`;
-        }
-        if(heroIndex === heroTotal + 1){ // 첫 클론에서 마지막 슬라이드로 점프
-            heroSlidesRow.style.transition = 'none';
-            heroIndex = 1;
-            heroSlidesRow.style.transform = `translateX(${-heroIndex*heroSlideWidth}px)`;
-        }
-        isTransitioning = false;
-    });
-
-    // 4. 버튼 클릭
-    heroPrevBtn.addEventListener('click', ()=>moveToSlide(heroIndex-1));
-    heroNextBtn.addEventListener('click', ()=>moveToSlide(heroIndex+1));
-
-    // 5. 자동 슬라이드
-    const startAuto = ()=>{
-        clearInterval(heroAutoTimer);
-        heroAutoTimer = setInterval(()=>moveToSlide(heroIndex+1),10000);
-    };
-    startAuto();
-    sliderEl.addEventListener('mouseenter', ()=>clearInterval(heroAutoTimer));
-    sliderEl.addEventListener('mouseleave', startAuto);
-
-    // 6. 드래그
-    let startX=0, currentX=0, isDragging=false, initialTranslate=0;
-
-    const setTranslate = (val)=>{ heroSlidesRow.style.transition='none'; heroSlidesRow.style.transform=`translateX(${val}px)`; };
-    const resetTranslate = ()=>{ heroSlidesRow.style.transition='transform 0.6s ease-in-out'; heroSlidesRow.style.transform=`translateX(${-heroIndex*heroSlideWidth}px)`; };
-
-    const dragStart = x=>{
-        isDragging=true;
-        startX=x;
-        initialTranslate=-heroIndex*heroSlideWidth;
-        heroSlidesRow.style.cursor='grabbing';
-    };
-    const dragMove = x=>{
-        if(!isDragging) return;
-        currentX=x;
-        setTranslate(initialTranslate + (currentX-startX));
-    };
-    const dragEnd = ()=>{
-        if(!isDragging) return;
-        isDragging=false;
-        heroSlidesRow.style.cursor='grab';
-        const diff = currentX - startX;
-        if(Math.abs(diff) > heroSlideWidth/4){
-            moveToSlide(diff>0 ? heroIndex-1 : heroIndex+1);
-        } else {
-            resetTranslate();
-        }
-    };
-
-    sliderEl.addEventListener('mousedown', e=>{
-        e.preventDefault();
-        dragStart(e.clientX);
-        const onMove = e2=>dragMove(e2.clientX);
-        const onUp = ()=>{
-            dragEnd();
-            document.removeEventListener('mousemove', onMove);
-            document.removeEventListener('mouseup', onUp);
-        };
-        document.addEventListener('mousemove', onMove);
-        document.addEventListener('mouseup', onUp);
-    });
-    sliderEl.addEventListener('touchstart', e=>dragStart(e.touches[0].clientX));
-    sliderEl.addEventListener('touchmove', e=>dragMove(e.touches[0].clientX));
-    sliderEl.addEventListener('touchend', dragEnd);
-
-    // 7. 리사이즈
-    window.addEventListener('resize', ()=>{
-        heroSlideWidth = sliderEl.offsetWidth;
-        heroSlidesRow.style.transition='none';
-        heroSlidesRow.style.transform = `translateX(${-heroIndex*heroSlideWidth}px)`;
-    });
-}
-
-    /* ===========================
-       4. Small Products Carousel
-    =========================== */
-    const track = document.querySelector('.carousel-track');
-    if(track){
-        const slides = Array.from(track.children);
-        const prevBtn = document.querySelector('.carousel-btn.prev');
-        const nextBtn = document.querySelector('.carousel-btn.next');
-        let index = 0;
-
-        const updateCarousel = ()=>{ 
-            track.style.transform = `translateX(-${index*100}%)`;
-            slides.forEach((slide,i)=>slide.classList.toggle('active',i===index));
-        };
-
-        prevBtn.addEventListener('click', ()=>{ index=(index-1+slides.length)%slides.length; updateCarousel(); });
-        nextBtn.addEventListener('click', ()=>{ index=(index+1)%slides.length; updateCarousel(); });
-
-        // Drag
-        let startX=0, isDown=false;
-        track.addEventListener('pointerdown', e=>{ isDown=true; startX=e.clientX; track.style.transition='none'; });
-        track.addEventListener('pointermove', e=>{ if(!isDown) return; const dx=e.clientX-startX; track.style.transform=`translateX(${-index*100 + dx/track.offsetWidth*100}%)`; });
-        track.addEventListener('pointerup', e=>{
-            if(!isDown) return; isDown=false; const dx=e.clientX-startX; track.style.transition='transform 0.6s ease';
-            if(dx<-50) index=(index+1)%slides.length;
-            else if(dx>50) index=(index-1+slides.length)%slides.length;
-            updateCarousel();
-        });
-
-        setInterval(()=>nextBtn.click(),4000);
-    }
-
-/* ===========================
-   5. FAQ Accordion (멀티 오픈 가능)
-=========================== */
-const questions = document.querySelectorAll('.faq-question');
-const closeAllBtn = document.getElementById('close-all');
-const openAllBtn = document.getElementById('open-all'); // 새로 추가한 버튼
-
-function updateBtnVisibility() {
-    const anyOpen = Array.from(questions).some(q => q.classList.contains('active'));
-    const allOpen = Array.from(questions).every(q => q.classList.contains('active'));
-
-    // 모두 닫기 버튼: 질문이 하나 이상 열려 있을 때만 표시
-    if (closeAllBtn) closeAllBtn.style.display = anyOpen ? 'inline-block' : 'none';
-
-    // 모두 열기 버튼: 질문이 하나 이상 있고 모두 열려 있지 않을 때만 표시
-    if (openAllBtn) openAllBtn.style.display = (questions.length > 0 && !allOpen) ? 'inline-block' : 'none';
-}
-
-if (questions.length > 0) {
-    questions.forEach(q => {
-        q.addEventListener('click', () => {
-            const answer = q.nextElementSibling;
-            const isOpen = q.classList.contains('active');
-
-            if (isOpen) {
-                q.classList.remove('active');
-                answer.style.maxHeight = null;
-            } else {
-                q.classList.add('active');
-                answer.style.maxHeight = answer.scrollHeight + 'px';
-            }
-
-            updateBtnVisibility(); // 클릭 후 버튼 상태 갱신
-        });
-    });
-}
-
-// 모든 FAQ 닫기
-if (closeAllBtn) {
-    closeAllBtn.addEventListener('click', () => {
-        questions.forEach(q => {
-            q.classList.remove('active');
-            q.nextElementSibling.style.maxHeight = null;
-        });
-        updateBtnVisibility();
-    });
-}
-
-// 모든 FAQ 열기
-if (openAllBtn) {
-    openAllBtn.addEventListener('click', () => {
-        questions.forEach(q => {
-            q.classList.add('active');
-            q.nextElementSibling.style.maxHeight = q.nextElementSibling.scrollHeight + 'px';
-        });
-        updateBtnVisibility();
-    });
-}
-
-// 초기 상태 버튼 표시 업데이트
-updateBtnVisibility();
-
-
-    /* ===========================
-       6. Timeline Fade-in
-    =========================== */
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    if(timelineItems.length>0){
-        timelineItems.forEach(item=>{
-            const obs = new IntersectionObserver(entries=>{
-                if(entries[0].isIntersecting){
-                    item.style.transform='translateX(0)';
-                    item.style.opacity='1';
-                    obs.unobserve(item);
-                }
-            },{threshold:0.3});
-            item.style.transform='translateX(-50px)';
-            item.style.opacity='0';
-            obs.observe(item);
-        });
-    }
-
-    /* ===========================
-       7. Stats Count-up
-    =========================== */
-    const counters = document.querySelectorAll('.count');
-    const speed = 50;
-    if(counters.length>0){
-        counters.forEach(counter=>{
-            const updateCount = ()=>{
-                const target = parseFloat(counter.dataset.target);
-                const count = parseFloat(counter.innerText);
-                const increment = target / 30;
-                if(count<target){
-                    counter.innerText = (count+increment).toFixed(1);
-                    setTimeout(updateCount,speed);
-                }else{
-                    counter.innerText = target;
-                }
-            };
-            const obs = new IntersectionObserver(entries=>{
-                if(entries[0].isIntersecting){
-                    updateCount();
-                    obs.unobserve(counter);
-                }
-            },{threshold:0.5});
-            obs.observe(counter);
-        });
-    }
-
-    /* ===========================
-       8. Scroll Animate & Parallax Sections
-    =========================== */
-    const sections = document.querySelectorAll('section:not(.c_row)');
-    const rows = document.querySelectorAll('.c_row');
-
-    if(sections.length>0 || rows.length>0){
-        const observer = new IntersectionObserver((entries)=>{
-            entries.forEach(entry=>{
-                if(!entry.isIntersecting) return;
-                const el = entry.target;
-                if(el.classList.contains('c_row')){
-                    el.classList.add(el.classList.contains('left') ? 'fade-in-left' : 'fade-in-right');
-                } else {
-                    el.classList.add('animate');
-                }
-            });
-        },{threshold:0.2});
-
-        sections.forEach(sec=>observer.observe(sec));
-        rows.forEach((row,index)=>{
-            row.classList.add(index%2===0 ? 'left' : 'right');
-            observer.observe(row);
-        });
-    }
-	
-	/* ===========================
-   9. Lcarousel (Large Horizontal Carousel)
-=========================== */
-(function(){
-    const Lcarousel = document.querySelector('.Lcarousel');
-    if(!Lcarousel) return;
-
-    const viewport = Lcarousel.querySelector('.viewport');
-    const track = Lcarousel.querySelector('.track');
-    const prevBtn = Lcarousel.querySelector('.Lnav.prev');
-    const nextBtn = Lcarousel.querySelector('.Lnav.next');
-    const dotsContainer = Lcarousel.querySelector('.dots');
-
-    let slides = Array.from(track.children);
-    const originalCount = slides.length;
-
-    const TRANSITION_MS = 400;
-    const DRAG_SPEED = 0.9;
-    const THRESHOLD_RATIO_PC = 0.2;
-    const THRESHOLD_RATIO_MOBILE = 0.1;
-
-    let cloneCount = 0, index = 0, gap = 0, slideWidth = 0;
-    const root = document.documentElement;
-
-    const getVisible = ()=> parseFloat(getComputedStyle(root).getPropertyValue('--visible')) || 3.3333;
-    const getCloneCount = ()=> Math.max(4, Math.ceil(getVisible())+1);
-
-    const setTransition = on => { track.style.transition = on ? `transform ${TRANSITION_MS}ms ease` : 'none'; };
-
-    const measure = ()=>{
-        const slideEl = track.querySelector('.slide');
-        if(!slideEl) return;
-        const styles = getComputedStyle(track);
-        gap = parseFloat(styles.columnGap || styles.gap) || 0;
-        slideWidth = slideEl.getBoundingClientRect().width + gap;
-    };
-
-    const goToIndex = (i, animate=true)=>{
-        setTransition(animate);
-        index=i;
-        track.style.transform = `translateX(${-index*slideWidth}px)`;
-        updateDots();
-    };
-
-    const snapIfLoopEdge = ()=>{
-        const firstReal=cloneCount;
-        const lastRealStart=cloneCount+originalCount-1;
-        if(index>lastRealStart) goToIndex(index-originalCount,false);
-        else if(index<firstReal) goToIndex(index+originalCount,false);
-    };
-
-    const rebuild = ()=>{
-        Array.from(track.querySelectorAll('.slide.__clone')).forEach(n=>n.remove());
-        slides = Array.from(track.querySelectorAll('.slide')).filter(el=>!el.classList.contains('__clone'));
-        cloneCount = getCloneCount();
-
-        const firstClones = slides.slice(0,cloneCount).map(n=>n.cloneNode(true));
-        const lastClones = slides.slice(-cloneCount).map(n=>n.cloneNode(true));
-
-        firstClones.forEach(n=>{ n.classList.add('__clone'); track.appendChild(n); });
-        lastClones.forEach(n=>{ n.classList.add('__clone'); track.insertBefore(n, track.firstChild); });
-
-        measure();
-        requestAnimationFrame(()=>{ goToIndex(cloneCount,false); });
-        createDots();
-    };
-
-    const next = ()=>goToIndex(index+1);
-    const prev = ()=>goToIndex(index-1);
-
-    if(prevBtn) prevBtn.addEventListener('click', prev);
-    if(nextBtn) nextBtn.addEventListener('click', next);
-
-    /* Drag */
-    let isDown=false, startX=0, startIndex=0, startTransform=0;
-    const getCurrentTranslate = ()=> {
-        const m=/translateX\((-?\d+(?:\.\d+)?)px\)/.exec(track.style.transform);
-        return m?parseFloat(m[1]):0;
-    };
-    const onDown = e=>{
-        e.preventDefault();
-        isDown=true;
-        startX=e.clientX??e.touches?.[0]?.clientX??0;
-        startIndex=index;
-        startTransform=getCurrentTranslate();
-        setTransition(false);
-    };
-    const onMove = e=>{
-        if(!isDown) return;
-        const x = e.clientX??e.touches?.[0]?.clientX??0;
-        const dx = x-startX;
-        track.style.transform = `translateX(${startTransform+dx*DRAG_SPEED}px)`;
-    };
-    const onUp = e=>{
-        if(!isDown) return;
-        isDown=false;
-        const endX = e.clientX??e.changedTouches?.[0]?.clientX??startX;
-        const dx = endX-startX;
-        const isMobile = window.innerWidth<=768;
-        const threshold = slideWidth*(isMobile?THRESHOLD_RATIO_MOBILE:THRESHOLD_RATIO_PC);
-        setTransition(true);
-        if(Math.abs(dx)>5){
-            const link = e.target.closest('a');
-            if(link) e.preventDefault();
-        }
-        if(dx<-threshold) goToIndex(startIndex+1,true);
-        else if(dx>threshold) goToIndex(startIndex-1,true);
-        else goToIndex(startIndex,true);
-    };
-
-    Lcarousel.addEventListener('pointerdown', onDown);
-    window.addEventListener('pointermove', e=>{ if(isDown) onMove(e); });
-    window.addEventListener('pointerup', e=>{ if(isDown) onUp(e); });
-    Lcarousel.addEventListener('touchstart', onDown);
-    window.addEventListener('touchmove', e=>{ if(isDown) onMove(e); });
-    window.addEventListener('touchend', e=>{ if(isDown) onUp(e); });
-    track.addEventListener('transitionend', snapIfLoopEdge);
-
-    const onResize = ()=>{
-        const currentRealOffset=(index-cloneCount+originalCount)%originalCount;
-        rebuild();
-        requestAnimationFrame(()=>{ goToIndex(cloneCount+currentRealOffset,false); });
-    };
-    window.addEventListener('resize', onResize);
-
-    /* Dots */
-    const createDots = ()=>{
-        if(!dotsContainer) return;
-        dotsContainer.innerHTML='';
-        for(let i=0;i<originalCount;i++){
-            const dot=document.createElement('div');
-            dot.className='dot';
-            dot.addEventListener('click', ()=>goToIndex(cloneCount+i));
-            dotsContainer.appendChild(dot);
-        }
-        updateDots();
-    };
-    const updateDots = ()=>{
-        if(!dotsContainer) return;
-        const realIndex=(index-cloneCount+originalCount)%originalCount;
-        dotsContainer.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active', i===realIndex));
-    };
-
-    /* AutoPlay */
-    let autoPlayTimer;
-    const startAutoPlay = ()=>{ stopAutoPlay(); autoPlayTimer=setInterval(next,3000); };
-    const stopAutoPlay = ()=>clearInterval(autoPlayTimer);
-    Lcarousel.addEventListener('mouseenter', stopAutoPlay);
-    Lcarousel.addEventListener('mouseleave', startAutoPlay);
-
-    rebuild();
-    startAutoPlay();
-
-})();
-
-	/* ===========================
-  10. testimonials (Large Horizontal Carousel)
-=========================== */
-(function(){
-    const testimonials = document.querySelector('#testimonials .slides');
-    if(!testimonials) return;
-
-    const slides = Array.from(testimonials.children);
-    const total = slides.length;
-    let index = 0;
-    let slideWidth = testimonials.offsetWidth;
-
-    // 슬라이드 위치 업데이트
-    const updateSlide = i => {
-        testimonials.style.transition = 'transform 0.6s ease';
-        testimonials.style.transform = `translateX(-${i * slideWidth}px)`;
-        index = i;
-    };
-
-    // 자동 슬라이드
-    let autoTimer = setInterval(()=>updateSlide((index+1)%total), 4000);
-
-    // 드래그
-    let isDown=false, startX=0, startTranslate=0;
-
-    const getTranslateX = () => {
-        const m = /translateX\((-?\d+(?:\.\d+)?)px\)/.exec(testimonials.style.transform);
-        return m ? parseFloat(m[1]) : 0;
-    };
-
-    testimonials.addEventListener('pointerdown', e=>{
-        isDown=true;
-        startX=e.clientX??e.touches?.[0]?.clientX;
-        startTranslate=getTranslateX();
-        testimonials.style.transition='none';
-        clearInterval(autoTimer);
-    });
-
-    window.addEventListener('pointermove', e=>{
-        if(!isDown) return;
-        const x = e.clientX??e.touches?.[0]?.clientX;
-        const dx = x-startX;
-        testimonials.style.transform = `translateX(${startTranslate + dx}px)`;
-    });
-
-    const onEnd = e=>{
-        if(!isDown) return;
-        isDown=false;
-        const x = e.clientX??e.changedTouches?.[0]?.clientX;
-        const dx = x-startX;
-        if(dx<-slideWidth/4) updateSlide((index+1)%total);
-        else if(dx>slideWidth/4) updateSlide((index-1+total)%total);
-        else updateSlide(index);
-
-        // 다시 자동 슬라이드
-        autoTimer = setInterval(()=>updateSlide((index+1)%total), 4000);
-    };
-
-    window.addEventListener('pointerup', onEnd);
-    testimonials.addEventListener('touchend', onEnd);
-
-    // 리사이즈 대응
-    window.addEventListener('resize', ()=>{
-        slideWidth = testimonials.offsetWidth;
-        updateSlide(index);
-    });
-
-    // 초기 위치
-    updateSlide(0);
-
-})();
-
-
+  PDFModal.init();
 });
+PDFViewerApplicationOptions.set('enablePinchToZoom', true);
+PDFViewerApplicationOptions.set('autoResize', true);
+</script>
+</body>
+</html>

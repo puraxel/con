@@ -813,6 +813,169 @@ section#testimonials {
 }
 
 /* ---------------------------
+Download Section
+ ---------------------------*/
+section.download {
+  width : 100%;
+}
+
+.download {
+  background-color: #121212;
+  color: #fff;
+  padding: 150px 20px;
+  text-align: center;
+}
+
+.download-con {
+  max-width: 1500px;
+  margin:0 auto;
+}
+
+.download h2 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.download p {
+  color: #ccc;
+  margin-bottom: 40px;
+  font-size: 1.1rem;
+}
+
+.download-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.download-card {
+  background: #1e1e1e;
+  border-radius: 12px;
+  padding: 30px;
+  width: 30%;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.download-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+.download-card i {
+  font-size: 40px;
+  color: #D4A190;
+  margin-bottom: 15px;
+}
+
+.download-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.download-card p {
+  font-size: 0.95rem;
+  color: #bbb;
+  margin-bottom: 20px;
+}
+
+.download-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* 버튼 공통 스타일 */
+.download-card .btn {
+  display: inline-block;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+/* 다운로드 버튼 */
+.download-card .download-btn {
+  background-color: #c6907f;
+}
+
+.download-card .download-btn:hover {
+  background-color: #c1826d;
+  transform: scale(1.05);
+}
+
+/* 미리보기 버튼 */
+.download-card .preview-btn {
+  background-color: #333;
+}
+
+.download-card .preview-btn:hover {
+  background-color: #444;
+  transform: scale(1.05);
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .download-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .download-card {
+    width: 600px;
+	max-width: 90%;
+	background-color : #242424;
+}
+}
+
+/* 모달 기본 스타일 */
+.pdf-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.pdf-modal-content {
+  background: #1e1e1e;
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 90%;
+  width: 80%;
+  height: 90%;
+  position: relative;
+}
+
+.pdf-modal iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+.pdf-close-modal {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 32px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* 스크롤 잠금 시 */
+.body-lock {
+  overflow: hidden;
+}
+
+/* ---------------------------
    CTA Section
 --------------------------- */
 /*section.cta {

@@ -1142,7 +1142,7 @@ section#faq h2 {
 }
 
 .faq-item {
-  max-width: 70%;
+  max-width: 800px;
   margin: 0 auto 16px auto;
   border: 1px solid #e0e0e0;
   border-radius: 8px;

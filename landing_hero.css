@@ -1133,7 +1133,7 @@ section.stats {
 section#faq {
   margin:0 auto;
   background: #f9f9f9; /* 밝은 배경 */
-  padding: 110px 20px;
+  padding: 110px 0;
 }
 
 section#faq h2 {
@@ -1142,7 +1142,7 @@ section#faq h2 {
 }
 
 .faq-item {
-  max-width: 800px;
+  max-width: 70%;
   margin: 0 auto 16px auto;
   border: 1px solid #e0e0e0;
   border-radius: 8px;

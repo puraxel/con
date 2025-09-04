@@ -1684,7 +1684,7 @@ section#contact {
   justify-content: center;
   border-radius: 50%;
   text-decoration: none;
-  padding-top:2px;
+  padding-top:10px;
   font-size: 22px;
   opacity: 0;
   visibility: hidden;

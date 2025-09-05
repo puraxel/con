@@ -94,15 +94,16 @@ const sectionsWithId = document.querySelectorAll('section[id]');
 if (navLinks.length && sectionsWithId.length) {
   const navObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
+      const id = entry.target.id;
       if (entry.isIntersecting) {
-        const id = entry.target.id;
+        // 모든 링크에서 active 제거 후 현재 섹션 링크만 active
         navLinks.forEach(link => {
           const hrefId = link.getAttribute('href').split('#')[1];
           link.classList.toggle('active', hrefId === id);
         });
       }
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.1 }); // 화면 10%만 보여도 감지
 
   sectionsWithId.forEach(sec => navObserver.observe(sec));
 }
@@ -682,4 +683,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
 

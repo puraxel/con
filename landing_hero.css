@@ -285,7 +285,7 @@ section.hero {
     .Lhero .hero_content {
       position:relative;
       z-index:2;
-      padding: 0 1rem;
+      padding: 0 20px;
     }
     .Lhero h1 { font-size:3rem; margin-bottom:16px; letter-spacing:0.5px; }
     .Lhero p { font-size:1.15rem; margin-bottom:24px; line-height:1.4; }
@@ -381,6 +381,7 @@ section h2 {
 --------------------------- */
 section#features {
     max-width: 1500px;
+	width: 100%;
 	margin:0 auto;
 	}
 .features {
@@ -754,6 +755,7 @@ section.crossing {
 --------------------------- */
 section#testimonials {
     max-width: 1500px;
+	width: 100%;
 	min-height:100vh; 
 	margin:0 auto;
 	}

@@ -109,7 +109,7 @@ body.light-mode .c_content p {
 
 /* Testimonials Section */
 body.light-mode .testimonials {
-    background: #fff;
+    background: #f9f9f9;
     color: #242424;
 }
 body.light-mode .testimonials .slide {
@@ -222,6 +222,14 @@ body.light-mode .team-card:hover {
     box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
 
+body.light-mode .team-card h4 {
+  color: #242424;
+}
+
+body.light-mode .team-card p {
+  color: #666;
+}
+
 /* Timeline Section */
 body.light-mode section.timeline .timeline-content {
     background: #fff;
@@ -251,7 +259,7 @@ body.light-mode .awards-marker {
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-.awards-track::before {
+body.light-mode .awards-track::before {
   background: #ccc; /* 타임라인 선 어둡게 */
 }
 

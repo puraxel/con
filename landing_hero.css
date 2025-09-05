@@ -1801,5 +1801,5 @@ input:checked + .mode-slider {
 }
 
 input:checked + .mode-slider::before {
-  transform: translateX(18px);
+  transform: translateX(19px);
 }

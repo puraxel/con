@@ -185,7 +185,7 @@ header .logo a {
   }
 
   .section-links a {
-    margin: 0 10px;
+    margin: 0 5px;
   }
 }
 
@@ -1778,4 +1778,5 @@ input:checked + .mode-slider {
 
 input:checked + .mode-slider::before {
   transform: translateX(19px);
+
 }

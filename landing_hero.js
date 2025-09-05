@@ -635,3 +635,26 @@ updateBtnVisibility();
 
 
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('mode-toggle');
+    const body = document.body;
+
+    // 이전 테마 적용
+    if (localStorage.getItem('theme') === 'light') {
+        toggle.checked = true;
+        body.classList.add('light-mode');
+    }
+
+    // 토글 변경 시 라이트 모드 적용
+    toggle.addEventListener('change', () => {
+        if (toggle.checked) {
+            body.classList.add('light-mode');
+            localStorage.setItem('theme', 'light');
+        } else {
+            body.classList.remove('light-mode');
+            localStorage.setItem('theme', 'dark');
+        }
+    });
+});
+

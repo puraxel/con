@@ -23,6 +23,7 @@ li {
   margin: 0;
   padding: 0;
 }
+
 /* ---------------------------
    header
 --------------------------- */
@@ -1673,7 +1674,7 @@ section#contact {
 --------------------------- */
 .scroll-to-top {
   position: fixed;
-  bottom: 10px;
+  bottom: 40px;
   right: 10px;
   width: 40px;
   height: 40px;
@@ -1709,6 +1710,9 @@ footer {
     background: #222;
     color: #fff;
 	font-size: 12px;
+	display: flex;
+	align-items: center;
+    justify-content: center; 
 }
 
 /* ---------------------------
@@ -1746,4 +1750,55 @@ footer {
   max-width: 90%;
 
 }
+}
+
+/* ---------------------------
+   Mode Switch
+--------------------------- */
+.switch {
+ position: fixed;
+ bottom: 15px;
+  right: 10px;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  /* margin-left: 10px; */
+  z-index: 999;
+}
+
+.switch input {
+  display: none; /* 숨기지만 슬라이드 span과 연결 */
+}
+
+.mode-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #cccccc;
+  border-radius: 34px;
+  border : 1px solid #f9f8f7;
+  transition: 0.4s;
+}
+
+.mode-slider::before {
+  content: "";
+  position: absolute;
+  height: 13px;
+  width: 13px;
+  left: 3px;
+  bottom: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input:checked + .mode-slider {
+  background-color: #454545;
+}
+
+input:checked + .mode-slider::before {
+  transform: translateX(18px);
 }

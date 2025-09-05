@@ -84,8 +84,8 @@ body.light-mode .lcard {
     background: linear-gradient(135deg, #e3eeff, #f5f9ff);
 }
 body.light-mode .Lnav {
-    background: #242424;
-    opacity: 0.7;
+    background: #fff;
+    opacity: 0.5;
 }
 body.light-mode .dot {
     background: #888;
@@ -244,7 +244,7 @@ body.light-mode .timeline-item::before {
 
 /* Awards Section */
 body.light-mode section.awards {
-    background-color: #f9f9f9;
+    background-color: #ffffff;
 }
 body.light-mode section.awards h2 {
     color : #242424;
@@ -273,3 +273,26 @@ body.light-mode footer {
     background: #f0f0f0;
     color: #242424;
 }
+
+
+    /* 오늘 안보기 버튼 */
+body.light-mode .hide-today-btn {
+       background: rgba(0,0,0,0.3);
+      color: #fff;
+      border: none;
+       border-radius: 50px; 
+	  width:100%;
+	  display: block;
+      margin-top: 5px;
+      padding: 4px;
+      font-size: 11px;
+	  font-weight: 300;
+      cursor: pointer;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      /* box-shadow: 0 2px 4px rgba(0,0,0,0); */
+    }
+
+body.light-mode .hide-today-btn:hover {
+      background: rgba(0,0,0,0.6);
+      box-shadow: 0 4px 8px rgba(0,0,0,0);
+    }

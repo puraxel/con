@@ -692,18 +692,26 @@ toggle.addEventListener('click', () => {
   navMenu.classList.toggle('show');
 });
 
-// 모바일: 아코디언 메뉴
-document.querySelectorAll('.menu-item > a').forEach(link => {
+// 모바일: 아코디언 메뉴 + 두 번째 클릭 이동
+document.querySelectorAll('.nav-menu a').forEach(link => {
     link.addEventListener('click', e => {
       const parent = link.parentElement;
-      if (parent.querySelector('.submenu')) {
-        if (window.innerWidth <= 768) {
-          e.preventDefault(); // 모바일일 때만 링크 막음
-          parent.classList.toggle('open');
+      const submenu = parent.querySelector('ul');
+  
+      if (submenu && window.innerWidth <= 768) {
+        if (!parent.classList.contains('open')) {
+          // 첫 클릭: 메뉴 열기
+          e.preventDefault();
+          parent.classList.add('open');
+        } else {
+          // 두 번째 클릭: 링크 이동 (아무 조치 안 함)
+          // 필요 시 클래스 초기화는 선택 사항
+          parent.classList.remove('open'); // optional: 닫고 이동
         }
       }
     });
   });
+ 
   
   // 모든 소메뉴 요소 선택
 const subSubMenus = document.querySelectorAll('.sub-submenu');

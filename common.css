@@ -76,20 +76,80 @@ header .logo a {
 }
 }
 
+.nav-menu {
+  background: rgba(0, 0, 0, 0);
+}
+
+.nav-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 .nav-menu a {
-    color: #ececec; 
-    text-decoration: none; 
-    font-weight: 400; 
-    transition: color 0.3s ease;
+  display: block;
+  color: #F9F8F7;
+  text-decoration: none;
+  padding: 8px 12px;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .nav-menu a:hover {
-    color: #ffffff; 
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
 }
 
 .nav-menu a.active {
-    color: #ffffff;
-    font-weight: 600; 
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* PC: 대메뉴는 가로 배치 */
+.menu {
+  display: flex;
+  gap: 20px;
+}
+
+.menu-item {
+  position: relative;
+}
+
+/* 2단계: 중메뉴 */
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(0, 0, 0, 0.95);
+  min-width: 100px;
+  z-index: 999;
+}
+
+/* 3단계: 소메뉴 (기본 오른쪽으로 펼침) */
+.sub-submenu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  right: auto;
+  background: rgba(0, 0, 0, 0.95);
+  min-width: 100px;
+  z-index: 1000;
+}
+
+/* 왼쪽으로 펼칠 때 적용 */
+.sub-submenu.left {
+  left: auto;
+  right: 100%;
+}
+
+/* hover 시 표시 */
+.menu-item:hover > .submenu {
+  display: block;
+}
+
+.submenu li:hover > .sub-submenu {
+  display: block;
 }
 
 /* ---------------------------
@@ -103,6 +163,10 @@ header .logo a {
   top: 50%;
   transform: translateY(-50%);
   z-index: 999;
+  border-radius: 20px;
+  padding: 10px;
+  background: rgba(0,0,0,0.3);
+  box-shadow:0 6px 10px rgba(0,0,0,0.2);
 }
 
 .section-links a {
@@ -149,36 +213,77 @@ header .logo a {
 }
 
 @media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
+  .menu {
+    flex-direction: column;
   }
 
-  /* 햄버거 메뉴 슬라이딩 */
+  .menu-toggle {
+    display: block;
+    position: fixed;
+    top: 8px;
+    right: 16px;
+  }
+
   .nav-menu {
     position: fixed;
     top: -10px;
-	right: -250px;
-    width: 250px; 
-	height: 100%;
-    background: rgba(0,0,0,0.95);
-    padding: 20px;
-    flex-direction: column;
+    right: -250px;
+    width: 250px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    padding: 20px 0;
     transition: right 0.3s ease;
     z-index: 9999;
+    overflow-y: auto;
   }
 
   .nav-menu.show {
     right: 0;
   }
 
-  .nav-menu a, .nav-menu .dropbtn {
-    margin: 10px 0;
-    font-size: 16px;
+  /* PC 전용 position:absolute 제거 */
+  .submenu,
+  .sub-submenu {
+    position: static;
+    background: none;
   }
 
+  /* 대메뉴 */
+  .menu-item > a {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 12px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  /* 중메뉴 */
+  .submenu a {
+    font-size: 16px;
+    font-weight: 400;
+    padding: 10px 30px;
+    border: none;
+  }
+
+  /* 소메뉴 */
+  .sub-submenu a {
+    font-size: 14px;
+    font-weight: 300;
+    padding: 8px 45px;
+    opacity: 0.9;
+  }
+
+  /* 접힘/펼침 제어 */
+  .submenu, .sub-submenu {
+    display: none;
+  }
+
+  .menu-item.open > .submenu,
+  .submenu li.open > .sub-submenu {
+    display: block;
+  }
   .section-links {
     flex-direction: row;
-    top: 20px;
+    top: 10px;
     transform: translateX(-10%);
     padding: 10px;
     z-index: 1002;
@@ -186,6 +291,11 @@ header .logo a {
 
   .section-links a {
     margin: 0 5px;
+  }
+
+  .section-links {
+    background: rgba(0,0,0,0);
+    box-shadow:0 6px 10px rgba(0,0,0,0);
   }
 }
 
@@ -1778,5 +1888,4 @@ input:checked + .mode-slider {
 
 input:checked + .mode-slider::before {
   transform: translateX(19px);
-
 }

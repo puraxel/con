@@ -693,26 +693,41 @@ toggle.addEventListener('click', () => {
 });
 
 // 모바일: 아코디언 메뉴 (첫 클릭 열기, 두 번째 클릭 이동)
-document.querySelectorAll('.nav-menu a').forEach(link => {
-    link.addEventListener('click', e => {
-      if (window.innerWidth > 768) return; // PC는 그냥 링크 이동
+document.addEventListener('DOMContentLoaded', () => {
+    const mobileBreakpoint = 768;
   
-      const parentLi = link.parentElement;
-      const submenu = parentLi.querySelector('ul');
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+      link.addEventListener('touchstart', function(e) {
+        if (window.innerWidth > mobileBreakpoint) return;
   
-      if (submenu) {
-        if (!parentLi.classList.contains('open')) {
-          // 첫 클릭: 메뉴 열기
+        const parentLi = this.parentElement;
+        const submenu = parentLi.querySelector('ul');
+  
+        if (submenu) {
+          if (!parentLi.classList.contains('open')) {
+            // 첫 터치: 메뉴 열기
+            e.preventDefault();
+            parentLi.classList.add('open');
+          } 
+          // 두 번째 터치 시 이동 가능 (preventDefault 안 함)
+        }
+      });
+  
+      // 데스크탑도 포함하려면 click 이벤트 추가
+      link.addEventListener('click', function(e) {
+        if (window.innerWidth > mobileBreakpoint) return;
+  
+        const parentLi = this.parentElement;
+        const submenu = parentLi.querySelector('ul');
+  
+        if (submenu && !parentLi.classList.contains('open')) {
           e.preventDefault();
           parentLi.classList.add('open');
-        } else {
-          // 두 번째 클릭: 이동
-          // 선택 사항: 클릭 후 다른 메뉴는 닫기
-          // document.querySelectorAll('.nav-menu li.open').forEach(li => li !== parentLi && li.classList.remove('open'));
         }
-      }
+      });
     });
   });
+  
  
   
   // 모든 소메뉴 요소 선택

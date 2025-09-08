@@ -684,4 +684,44 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// 햄버거 메뉴 열기/닫기
+const toggle = document.querySelector('.menu-toggle');
+const navMenu = document.querySelector('.nav-menu');
+
+toggle.addEventListener('click', () => {
+  navMenu.classList.toggle('show');
+});
+
+// 모바일: 아코디언 메뉴
+document.querySelectorAll('.menu-item > a').forEach(link => {
+    link.addEventListener('click', e => {
+      const parent = link.parentElement;
+      if (parent.querySelector('.submenu')) {
+        if (window.innerWidth <= 768) {
+          e.preventDefault(); // 모바일일 때만 링크 막음
+          parent.classList.toggle('open');
+        }
+      }
+    });
+  });
+  
+  // 모든 소메뉴 요소 선택
+const subSubMenus = document.querySelectorAll('.sub-submenu');
+
+subSubMenus.forEach(menu => {
+  menu.parentElement.addEventListener('mouseenter', () => {
+    const rect = menu.getBoundingClientRect();
+    const windowWidth = window.innerWidth;
+
+    // 화면 오른쪽으로 넘어가면 왼쪽으로 펼치도록 클래스 추가
+    if (rect.right > windowWidth) {
+      menu.classList.add('left');
+    } else {
+      menu.classList.remove('left');
+    }
+  });
+});
+
+  
+  
 

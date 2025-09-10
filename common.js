@@ -652,64 +652,77 @@ updateBtnVisibility();
 });
 
 /* ===========================
-  햄버거 슬라이딩 메뉴
+   모바일 햄버거 메뉴 + 아코디언 (최종 통합)
 =========================== */
 document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.querySelector('.menu-toggle'); // 햄버거 버튼
-    const navMenu = document.querySelector('.nav-menu');       // nav-menu
-    const closeBtn = document.querySelector('.nav-menu .close-menu'); // X 버튼
-  
-    function isMobile() { return window.innerWidth <= 768; }
-  
-    // 햄버거 메뉴 토글
-    menuToggle.addEventListener('click', function() {
-      navMenu.classList.add('show');
+  const menuToggle = document.querySelector('.menu-toggle');         // 햄버거 버튼
+  const navMenu = document.querySelector('.nav-menu');               // nav-menu
+  const CLASS_SHOW = 'show';                                         // 메뉴 열림 클래스
+  const CLASS_OPEN = 'open';                                         // 아코디언 열림 클래스
+
+  function isMobile() { return window.innerWidth <= 768; }
+
+  // 모든 열린 서브메뉴 닫기
+  function closeAllSubmenus() {
+    navMenu.querySelectorAll(`.menu-item.${CLASS_OPEN}`).forEach(li => li.classList.remove(CLASS_OPEN));
+  }
+
+  // 햄버거 메뉴 열기
+  if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.add(CLASS_SHOW);
     });
-  
-    // X 버튼 클릭 시 닫기
-    if (closeBtn) {
-      closeBtn.addEventListener('click', () => {
-        navMenu.classList.remove('show');
-        document.querySelectorAll('.menu-item.open').forEach(li => li.classList.remove('open'));
-      });
+  }
+
+  // X 버튼 / 메뉴 외부 클릭 처리 (이벤트 위임으로 통합)
+  document.addEventListener('click', (e) => {
+    if (!isMobile()) return;
+
+    // X 버튼 클릭 시
+    if (e.target.closest('.close-menu')) {
+      navMenu.classList.remove(CLASS_SHOW);
+      closeAllSubmenus();
+      return;
     }
-  
-    // 메뉴 외부 클릭 시 닫기
-    document.addEventListener('click', function(e) {
-      if (!isMobile()) return;
-      if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
-        navMenu.classList.remove('show');
-        document.querySelectorAll('.menu-item.open').forEach(li => li.classList.remove('open'));
-      }
-    });
-  
-    // 모바일 아코디언 메뉴 (한 번에 하나만 열림)
-    const menuLinks = document.querySelectorAll('.nav-menu li > a');
-    menuLinks.forEach(link => {
-      link.addEventListener('click', function(e) {
-        if (!isMobile()) return;
-        const parentLi = link.parentElement;
-        const submenu = parentLi.querySelector(':scope > ul');
-        if (!submenu) return; // 하위 메뉴 없는 경우 링크 그대로
-        e.preventDefault();   // 링크 이동 막기
-  
-        // 같은 단계 메뉴 닫기
-        const siblings = parentLi.parentElement.querySelectorAll(':scope > li.open');
-        siblings.forEach(sib => { if(sib !== parentLi) sib.classList.remove('open'); });
-  
-        // 클릭한 메뉴 토글
-        parentLi.classList.toggle('open');
-      });
-    });
-  
-    // 화면 크기 변경 시 초기화
-    window.addEventListener('resize', function() {
-      if (!isMobile()) {
-        navMenu.classList.remove('show');
-        document.querySelectorAll('.menu-item.open').forEach(li => li.classList.remove('open'));
-      }
-    });
+
+    // 메뉴 외부 클릭 시
+    if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+      navMenu.classList.remove(CLASS_SHOW);
+      closeAllSubmenus();
+    }
   });
+
+  // 모바일 아코디언 메뉴 (이벤트 위임)
+  navMenu.addEventListener('click', (e) => {
+    if (!isMobile()) return;
+
+    const link = e.target.closest('li > a');
+    if (!link) return;
+
+    const parentLi = link.parentElement;
+    const submenu = parentLi.querySelector(':scope > ul');
+    if (!submenu) return; // 하위 메뉴 없으면 링크 그대로
+
+    e.preventDefault();  // 링크 이동 막기
+
+    // 같은 레벨의 다른 메뉴 닫기
+    parentLi.parentElement.querySelectorAll(`:scope > li.${CLASS_OPEN}`)
+      .forEach(sib => { if (sib !== parentLi) sib.classList.remove(CLASS_OPEN); });
+
+    // 클릭한 메뉴 토글
+    parentLi.classList.toggle(CLASS_OPEN);
+  });
+
+  // 화면 크기 변경 시 초기화
+  window.addEventListener('resize', () => {
+    if (!isMobile()) {
+      navMenu.classList.remove(CLASS_SHOW);
+      closeAllSubmenus();
+    }
+  });
+});
+
+
   
   
   

@@ -48,6 +48,10 @@
           <li><a href="#">조직도</a></li>
         </ul>
       </li>
+      <!-- 추가 -->
+      <li class="menu-item pc-only">
+        <a href="#" id="open-fullmenu" class="allmenu-btn">전체메뉴보기</a>
+      </li>
     </ul>
   </nav>
 
@@ -58,6 +62,47 @@
     <a href="#testimonials">사용후기</a>
     <a href="#contact">문의</a>
   </div>
+
+  <!-- 전체메뉴보기 -->
+<div class="fullmenu-panel" id="fullmenu">
+  <div class="fullmenu-inner">
+    <button class="close-fullmenu">✕</button>
+    <div class="fullmenu-columns">
+      <div class="column">
+        <h3>서비스</h3>
+        <ul>
+          <li>
+            웹 개발
+            <ul>
+              <li>프론트엔드</li>
+              <li>백엔드</li>
+            </ul>
+          </li>
+          <li>앱 개발</li>
+        </ul>
+      </div>
+      <div class="column">
+        <h3>블로그</h3>
+      </div>
+      <div class="column">
+        <h3>FAQ</h3>
+      </div>
+      <div class="column">
+        <h3>회사 소개</h3>
+        <ul>
+          <li>
+            연혁
+            <ul>
+              <li>2024</li>
+              <li>2023</li>
+            </ul>
+          </li>
+          <li>조직도</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 </header>
 
 <!-- Hero -->
@@ -209,8 +254,8 @@
       </div>
     </div>
 </section>
- 
- <!--  Stats Section -->
+
+<!--  Stats Section -->
 <section id="stats" class="stats slide-left">
   <h2 style="text-align:center;margin-bottom:40px;">Our Impact</h2>
   <div class="stats-grid">
@@ -251,6 +296,45 @@
     </div>
   </div>
 </section>
+
+<section id="event" class="Ltab_container">
+  <div class="Ltabs">
+      <div class="Ltab active" onclick="changeLtab(0)">
+     <p>Tab 1</p>
+          <img src="E:\이소영\lsy/test.png" alt="tab 1">
+      </div>
+      <div class="Ltab" onclick="changeLtab(1)">
+         <p>Tab 2</p>
+          <img src="E:\이소영\lsy/test2.png" alt="tab 1">
+      </div>
+      <div class="Ltab" onclick="changeLtab(2)">
+          <p>Tab 3</p>
+          <img src="E:\이소영\lsy/test.png" alt="tab 1">
+      </div>
+      <div class="Ltab" onclick="changeLtab(3)">
+         <p>Tab 4</p>
+          <img src="E:\이소영\lsy/test2.png" alt="tab 1">
+      </div>
+  </div>
+  <div class="Lcontent-container">
+      <div class="Lcontent active">
+          <p>Tab 1의 내용</p>
+          <a href=""><img src="E:\이소영\lsy/test.png"></a>
+      </div>
+      <div class="Lcontent">
+          <p>Tab 2의 내용</p>
+          <a href=""><img src="E:\이소영\lsy/test2.png"></a>
+      </div>
+      <div class="Lcontent">
+          <p>Tab 3의 내용</p>
+         <a href=""><img src="E:\이소영\lsy/test.png"></a>
+      </div>
+      <div class="Lcontent">
+          <p>Tab 4의 내용</p>
+          <a href=""><img src="E:\이소영\lsy/test2.png"></a>
+      </div>
+  </div>
+</section>  
 
 <!-- Awards / Certifications Timeline Section -->
 <section id="awards" class="awards">

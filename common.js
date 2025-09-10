@@ -655,40 +655,50 @@ updateBtnVisibility();
   햄버거 슬라이딩 메뉴
 =========================== */
 document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navMenu = document.querySelector('.nav-menu');
+    const menuToggle = document.querySelector('.menu-toggle'); // 햄버거 버튼
+    const navMenu = document.querySelector('.nav-menu');       // nav-menu
+    const closeBtn = document.querySelector('.nav-menu .close-menu'); // X 버튼
   
-    // 햄버거 버튼 토글
+    function isMobile() { return window.innerWidth <= 768; }
+  
+    // 햄버거 메뉴 토글
     menuToggle.addEventListener('click', function() {
-      navMenu.classList.toggle('show');
+      navMenu.classList.add('show');
     });
   
-    function isMobile() {
-      return window.innerWidth <= 768;
+    // X 버튼 클릭 시 닫기
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        navMenu.classList.remove('show');
+        document.querySelectorAll('.menu-item.open').forEach(li => li.classList.remove('open'));
+      });
     }
   
-    // 대분류 / 중분류 클릭 시 하위 메뉴 토글 (아코디언)
-    const menuLinks = document.querySelectorAll('.nav-menu li > a');
+    // 메뉴 외부 클릭 시 닫기
+    document.addEventListener('click', function(e) {
+      if (!isMobile()) return;
+      if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+        navMenu.classList.remove('show');
+        document.querySelectorAll('.menu-item.open').forEach(li => li.classList.remove('open'));
+      }
+    });
   
+    // 모바일 아코디언 메뉴 (한 번에 하나만 열림)
+    const menuLinks = document.querySelectorAll('.nav-menu li > a');
     menuLinks.forEach(link => {
       link.addEventListener('click', function(e) {
-        if (!isMobile()) return; // PC는 무시
-  
+        if (!isMobile()) return;
         const parentLi = link.parentElement;
-        const submenu = parentLi.querySelector(':scope > ul'); // 바로 하위 ul만 찾기
+        const submenu = parentLi.querySelector(':scope > ul');
+        if (!submenu) return; // 하위 메뉴 없는 경우 링크 그대로
+        e.preventDefault();   // 링크 이동 막기
   
-        if (submenu) {
-          e.preventDefault(); // 링크 이동 막기
+        // 같은 단계 메뉴 닫기
+        const siblings = parentLi.parentElement.querySelectorAll(':scope > li.open');
+        siblings.forEach(sib => { if(sib !== parentLi) sib.classList.remove('open'); });
   
-          // 같은 단계(li 형제들) 모두 닫기
-          const siblings = parentLi.parentElement.querySelectorAll(':scope > li.open');
-          siblings.forEach(sib => {
-            if (sib !== parentLi) sib.classList.remove('open');
-          });
-  
-          // 현재 클릭한 메뉴만 토글
-          parentLi.classList.toggle('open');
-        }
+        // 클릭한 메뉴 토글
+        parentLi.classList.toggle('open');
       });
     });
   
@@ -696,7 +706,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', function() {
       if (!isMobile()) {
         navMenu.classList.remove('show');
-        document.querySelectorAll('.nav-menu li.open').forEach(li => li.classList.remove('open'));
+        document.querySelectorAll('.menu-item.open').forEach(li => li.classList.remove('open'));
       }
     });
   });

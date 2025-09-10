@@ -74,13 +74,22 @@ header .logo a {
 	header nav a {
     margin-left: 3px;
 }
-.nav-menu ul ul {
+}
+
+
+@media (max-width: 768px) {
+/* 모바일 아코디언 메뉴 */
+
+.nav-menu ul.submenu,
+.nav-menu ul.sub-submenu {
   display: none;
+  padding-left: 10px;
 }
 
 .nav-menu li.open > ul {
   display: block;
 }
+
 }
 
 .nav-menu {
@@ -150,14 +159,6 @@ header .logo a {
   right: 100%;
 }
 
-/* hover 시 표시 */
-.menu-item:hover > .submenu {
-  display: block;
-}
-
-.submenu li:hover > .sub-submenu {
-  display: block;
-}
 
 /* ---------------------------
    섹션 링크
@@ -310,6 +311,12 @@ header .logo a {
    PC: 서브링크 메뉴
 --------------------------- */
 @media (min-width: 769px) {
+  .menu-item:hover > .submenu {
+    display: block;
+  }
+  .submenu li:hover > .sub-submenu {
+    display: block;
+  }
   .dropdown-content {
     display: flex !important;
     flex-direction: row; /* 가로 정렬 */

@@ -239,6 +239,8 @@ header .logo a {
 @media (max-width: 768px) {
   .menu {
     flex-direction: column;
+    position: relative;
+    top: 40px;
   }
 
   .menu-toggle {
@@ -350,8 +352,9 @@ header .logo a {
   }
 }
 
- /* Lhero / slider wrapper */
-
+ /* ---------------------------
+ Lhero / slider wrapper 
+ --------------------------- */
     section.Lhero {
       position:relative;
       width:100%;
@@ -1229,6 +1232,10 @@ section.cta {
     color: #fff;
     font-weight: 600;
     cursor: pointer;
+}
+
+.contact p {
+  line-height: 24px;
 }
 
 /* ---------------------------

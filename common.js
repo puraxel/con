@@ -722,7 +722,63 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+function changeLtab(index) {
+    let Ltabs = document.querySelectorAll('.Ltab');
+    let contents = document.querySelectorAll('.Lcontent');
+    
+    Ltabs.forEach(Ltab => Ltab.classList.remove('active'));
+    contents.forEach(content => content.classList.remove('active'));
+    
+    Ltabs[index].classList.add('active');
+    contents[index].classList.add('active');
+}
 
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const openBtn = document.getElementById("open-fullmenu");
+    const fullmenu = document.getElementById("fullmenu");
+    const closeBtn = fullmenu?.querySelector(".close-fullmenu");
+  
+    if (!openBtn || !fullmenu || !closeBtn) return; // 모바일 등 버튼 없으면 종료
+  
+    // 전체메뉴 열기
+    openBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation(); // 다른 이벤트와 충돌 방지
+      fullmenu.classList.add("show");
+    });
+  
+    // 닫기 버튼
+    closeBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      fullmenu.classList.remove("show");
+    });
+  
+    // 패널 내부 클릭 시 전파 차단
+    fullmenu.addEventListener("click", e => e.stopPropagation());
+  
+    // ESC 키로 닫기 (전체메뉴 전용)
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape" && fullmenu.classList.contains("show")) {
+        fullmenu.classList.remove("show");
+      }
+    });
+  
+    // 외부 클릭 시 닫기 (전체메뉴 전용)
+    document.addEventListener("click", e => {
+      if (!fullmenu.classList.contains("show")) return;
+      if (!fullmenu.contains(e.target) && e.target !== openBtn) {
+        fullmenu.classList.remove("show");
+      }
+    });
+  });
+  
+  
+  
+  
   
   
   

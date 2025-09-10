@@ -409,8 +409,8 @@ updateBtnVisibility();
         });
     }
 	
-	/* ===========================
-   9. Lcarousel (Large Horizontal Carousel)
+/* ===========================
+   Lcarousel (Large Horizontal Carousel)
 =========================== */
 (function(){
     const Lcarousel = document.querySelector('.Lcarousel');
@@ -488,20 +488,25 @@ updateBtnVisibility();
         const m=/translateX\((-?\d+(?:\.\d+)?)px\)/.exec(track.style.transform);
         return m?parseFloat(m[1]):0;
     };
+
     const onDown = e=>{
-        e.preventDefault();
+        // 버튼 클릭 시 드래그 이벤트 무시
+        if(e.target.closest('.Lnav')) return;
+
         isDown=true;
         startX=e.clientX??e.touches?.[0]?.clientX??0;
         startIndex=index;
         startTransform=getCurrentTranslate();
         setTransition(false);
     };
+
     const onMove = e=>{
         if(!isDown) return;
         const x = e.clientX??e.touches?.[0]?.clientX??0;
         const dx = x-startX;
         track.style.transform = `translateX(${startTransform+dx*DRAG_SPEED}px)`;
     };
+
     const onUp = e=>{
         if(!isDown) return;
         isDown=false;
@@ -510,21 +515,26 @@ updateBtnVisibility();
         const isMobile = window.innerWidth<=768;
         const threshold = slideWidth*(isMobile?THRESHOLD_RATIO_MOBILE:THRESHOLD_RATIO_PC);
         setTransition(true);
+
         if(Math.abs(dx)>5){
             const link = e.target.closest('a');
             if(link) e.preventDefault();
         }
+
         if(dx<-threshold) goToIndex(startIndex+1,true);
         else if(dx>threshold) goToIndex(startIndex-1,true);
         else goToIndex(startIndex,true);
     };
 
+    // Pointer / Touch 이벤트
     Lcarousel.addEventListener('pointerdown', onDown);
     window.addEventListener('pointermove', e=>{ if(isDown) onMove(e); });
     window.addEventListener('pointerup', e=>{ if(isDown) onUp(e); });
+
     Lcarousel.addEventListener('touchstart', onDown);
     window.addEventListener('touchmove', e=>{ if(isDown) onMove(e); });
     window.addEventListener('touchend', e=>{ if(isDown) onUp(e); });
+
     track.addEventListener('transitionend', snapIfLoopEdge);
 
     const onResize = ()=>{
@@ -546,6 +556,7 @@ updateBtnVisibility();
         }
         updateDots();
     };
+
     const updateDots = ()=>{
         if(!dotsContainer) return;
         const realIndex=(index-cloneCount+originalCount)%originalCount;
@@ -563,6 +574,7 @@ updateBtnVisibility();
     startAutoPlay();
 
 })();
+
 
 	/* ===========================
   10. testimonials (Large Horizontal Carousel)
@@ -642,111 +654,55 @@ updateBtnVisibility();
 /* ===========================
   햄버거 슬라이딩 메뉴
 =========================== */
-document.addEventListener('DOMContentLoaded', () => {
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navMenu = document.querySelector('.nav-menu');
-  const dropdown = document.querySelector('.dropdown');
-  const dropdownContent = document.querySelector('.dropdown-content');
-
-  // 1. 햄버거 메뉴 열기/닫기
-  if(menuToggle && navMenu){
-    menuToggle.addEventListener('click', (e) => {
-      e.stopPropagation();
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+  
+    // 햄버거 버튼 토글
+    menuToggle.addEventListener('click', function() {
       navMenu.classList.toggle('show');
-      if(window.innerWidth <= 768 && dropdownContent){
-        dropdownContent.style.display = navMenu.classList.contains('show') ? 'flex' : 'none';
-      }
     });
-  }
-
-  // 2. 모바일 메뉴 내부 링크 클릭 시 닫기
-  navMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      if(window.innerWidth <= 768){
-        navMenu.classList.remove('show');
-        if(dropdown) dropdown.classList.remove('active');
-        if(dropdownContent) dropdownContent.style.display = 'none';
-      }
-    });
-  });
-
-  // 3. 외부 클릭 시 메뉴 닫기
-  document.addEventListener('click', (e) => {
-    if(navMenu && !navMenu.contains(e.target) && !menuToggle.contains(e.target)){
-      navMenu.classList.remove('show');
-      if(dropdownContent && window.innerWidth <= 768){
-        dropdownContent.style.display = 'none';
-      }
-    }
-    if(dropdown && !dropdown.contains(e.target)){
-      dropdown.classList.remove('active');
-    }
-  });
-});
-
-// 햄버거 메뉴 열기/닫기
-const toggle = document.querySelector('.menu-toggle');
-const navMenu = document.querySelector('.nav-menu');
-
-toggle.addEventListener('click', () => {
-  navMenu.classList.toggle('show');
-});
-
-// 모바일: 아코디언 메뉴 (첫 클릭 열기, 두 번째 클릭 이동)
-document.addEventListener('DOMContentLoaded', () => {
-    const mobileBreakpoint = 768;
   
-    document.querySelectorAll('.nav-menu a').forEach(link => {
-      link.addEventListener('touchstart', function(e) {
-        if (window.innerWidth > mobileBreakpoint) return;
+    function isMobile() {
+      return window.innerWidth <= 768;
+    }
   
-        const parentLi = this.parentElement;
-        const submenu = parentLi.querySelector('ul');
+    // 대분류 / 중분류 클릭 시 하위 메뉴 토글 (아코디언)
+    const menuLinks = document.querySelectorAll('.nav-menu li > a');
+  
+    menuLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (!isMobile()) return; // PC는 무시
+  
+        const parentLi = link.parentElement;
+        const submenu = parentLi.querySelector(':scope > ul'); // 바로 하위 ul만 찾기
   
         if (submenu) {
-          if (!parentLi.classList.contains('open')) {
-            // 첫 터치: 메뉴 열기
-            e.preventDefault();
-            parentLi.classList.add('open');
-          } 
-          // 두 번째 터치 시 이동 가능 (preventDefault 안 함)
-        }
-      });
+          e.preventDefault(); // 링크 이동 막기
   
-      // 데스크탑도 포함하려면 click 이벤트 추가
-      link.addEventListener('click', function(e) {
-        if (window.innerWidth > mobileBreakpoint) return;
+          // 같은 단계(li 형제들) 모두 닫기
+          const siblings = parentLi.parentElement.querySelectorAll(':scope > li.open');
+          siblings.forEach(sib => {
+            if (sib !== parentLi) sib.classList.remove('open');
+          });
   
-        const parentLi = this.parentElement;
-        const submenu = parentLi.querySelector('ul');
-  
-        if (submenu && !parentLi.classList.contains('open')) {
-          e.preventDefault();
-          parentLi.classList.add('open');
+          // 현재 클릭한 메뉴만 토글
+          parentLi.classList.toggle('open');
         }
       });
     });
+  
+    // 화면 크기 변경 시 초기화
+    window.addEventListener('resize', function() {
+      if (!isMobile()) {
+        navMenu.classList.remove('show');
+        document.querySelectorAll('.nav-menu li.open').forEach(li => li.classList.remove('open'));
+      }
+    });
   });
   
- 
   
-  // 모든 소메뉴 요소 선택
-const subSubMenus = document.querySelectorAll('.sub-submenu');
-
-subSubMenus.forEach(menu => {
-  menu.parentElement.addEventListener('mouseenter', () => {
-    const rect = menu.getBoundingClientRect();
-    const windowWidth = window.innerWidth;
-
-    // 화면 오른쪽으로 넘어가면 왼쪽으로 펼치도록 클래스 추가
-    if (rect.right > windowWidth) {
-      menu.classList.add('left');
-    } else {
-      menu.classList.remove('left');
-    }
-  });
-});
-
+  
   
   
 

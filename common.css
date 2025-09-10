@@ -184,7 +184,7 @@ header .logo a {
   flex-direction: column;
   position: fixed;
   right: 20px;
-  top: 50%;
+  top: 25%;
   transform: translateY(-50%);
   z-index: 999;
   border-radius: 20px;
@@ -365,7 +365,7 @@ header .logo a {
       overflow:hidden;
       text-align:center;
       color:#fff;
-	  margin: 0;
+	    margin: 0;
       padding: 0;
     }
 
@@ -419,6 +419,14 @@ header .logo a {
 }
 
     /* Overlay (text / button) */
+    .Lhero::before {
+      content: '';
+      position: absolute;
+      top:0; left:0;
+      width:100%; height:100%;
+      background: rgba(0,0,0,0.2);
+      z-index:1; 
+    }
     .Lhero .hero_content {
       position:relative;
       z-index:2;

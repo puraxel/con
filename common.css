@@ -76,6 +76,10 @@ header .logo a {
 }
 }
 
+/* 모바일 전용 X버튼 */
+.nav-menu .close-menu {
+  display: none; /* 기본 숨김 */
+}
 
 @media (max-width: 768px) {
 /* 모바일 아코디언 메뉴 */
@@ -88,6 +92,18 @@ header .logo a {
 
 .nav-menu li.open > ul {
   display: block;
+}
+.nav-menu .close-menu {
+  display: block; 
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #fff;
+  cursor: pointer;
+  z-index: 10;
 }
 
 }
